@@ -1,9 +1,11 @@
 import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Test from "../pages/Test";
+import SignInLayout from "./Layout/SignIn";
 function App() {
   return (
     <>
+    <SignInLayout></SignInLayout>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<h1>Login</h1>} />
