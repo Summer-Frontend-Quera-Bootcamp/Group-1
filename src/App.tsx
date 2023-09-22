@@ -1,17 +1,13 @@
-import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.scss";
 import Test from "../pages/Test";
-import SignInLayout from "./Layout/SignIn";
 function App() {
   return (
     <>
-    <SignInLayout></SignInLayout>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<h1>Login</h1>} />
           <Route path="/test" element={<Test />} />
-          <Route path="/register" element={<h1>register</h1>} />
-          <Route path="/forgot" element={<h1>forgot</h1>} />
         </Routes>
       </BrowserRouter>
     </>
