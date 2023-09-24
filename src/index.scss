@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.ltr {
+  direction: ltr;
+}
+
 .linear-gradient-heading {
   background: linear-gradient(90deg, #4ab7d8 0%, #118c80 120%);
   background-clip: text;
