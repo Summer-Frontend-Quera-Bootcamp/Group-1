@@ -2,6 +2,7 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import AccountWrapper from "../../components/AccountForm/AccountWrapper";
 import Inputs from "../../components/AccountForm/Inputs";
+// import { Link } from "react-router-dom";
 
 const SignIn = () => {
   const initialValues = {
@@ -40,6 +41,13 @@ const SignIn = () => {
               type="password"
               autoCompleteField="current-password"
             />
+
+            {/* <Link
+              className="text-sm text-brand-primary mt-[-20px] mb-5"
+              to={"/forgot"}
+            >
+              رمز عبور را فراموش کرده‌ای؟
+            </Link> */}
 
             <button
               className="w-full flex justify-center items-center rounded-md h-10 bg-brand-primary text-white"
