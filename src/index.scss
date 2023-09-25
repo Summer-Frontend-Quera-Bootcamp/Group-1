@@ -15,3 +15,8 @@
 .linear-gradient {
   background: linear-gradient(90deg, #4ab7d8 0%, #118c80 120%);
 }
+
+.form-box-shadow {
+  box-shadow: 0px 50px 100px -20px rgba(50, 50, 93, 0.25),
+    0px 30px 60px -30px rgba(0, 0, 0, 0.3);
+}

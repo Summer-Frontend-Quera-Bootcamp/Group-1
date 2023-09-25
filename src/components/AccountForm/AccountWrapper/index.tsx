@@ -7,7 +7,7 @@ type AccountProps = {
 
 const AccountWrapper: React.FC<AccountProps> = ({title, children}): JSX.Element => {
   return (
-    <div className="p-6 bg-white rounded-[20px] w-[640px] animate__animated animate__fadeInDown">
+    <div className="p-6 bg-white rounded-[20px] w-[640px] form-box-shadow animate__animated animate__fadeInDown">
       {/* Card Title */}
       <div className="w-full text-center">
         <h1 className="text-[32px] mr-auto font-black mb-7">{title}</h1>
