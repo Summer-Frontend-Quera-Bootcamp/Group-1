@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
 
-type SignInLayoutProps = {
+type AuthenticateLayoutProps = {
   showSignup: boolean;
   children?: JSX.Element | JSX.Element[];
 };
 
-const SignInLayout: React.FC<SignInLayoutProps> = ({
+const AuthenticateLayout: React.FC<AuthenticateLayoutProps> = ({
   showSignup,
   children,
 }): JSX.Element => {
   return (
-    <div>
+    <div >
       {/* Place for more Components as Children */}
-      <div className="flex justify-center items-center w-60 h-80  bg-brand-secondary absolute top-[25%] right-[40%]">
+      <div className=" flex justify-center items-center fixed w-full right-0 top-1/2 bottom-1/2">
         {children}
-      </div>
+      </div >
       <div className="flex justify-between mt-[80px] ml-[80px] mr-[80px]">
         <h1 className="text-[32px] linear-gradient-heading font-extrabold items-baseline">
           کوئرا تسک منیجر
@@ -24,17 +24,17 @@ const SignInLayout: React.FC<SignInLayoutProps> = ({
             <>
               <p className="text-base font-medium">ثبت‌نام نکرده‌ای؟</p>
               <Link
-                to={"/signup"}
+                to={"/register"}
                 className="flex font-extrabold text-sm w-[75px] h-[40px] p-[10px] rounded-md text-white bg-brand-primary justify-center items-center ]"
               >
                 ثبت‌نام
-              </Link>{" "}
+              </Link>
             </>
           ) : (
             <>
               <p className="text-base font-medium">قبلا ثبت‌نام کرده‌ای؟</p>
               <Link
-                to={"/signup"}
+                to={"/register"}
                 className="flex font-extrabold text-sm w-[75px] h-[40px] p-[10px] rounded-md text-white bg-brand-primary justify-center items-center ]"
               >
                 ورود
@@ -48,4 +48,4 @@ const SignInLayout: React.FC<SignInLayoutProps> = ({
     </div>
   );
 };
-export default SignInLayout;
+export default AuthenticateLayout;
