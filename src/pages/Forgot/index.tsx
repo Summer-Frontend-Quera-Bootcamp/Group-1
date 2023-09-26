@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import AuthenticateLayout from "../../Layout/AuthenticateLayout";
 import AccountCard from "../../components/FormContainer/AccountCard";
 import Input from "../../components/FormContainer/Input";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 type Values = {
   email: string;
@@ -51,8 +51,8 @@ const Forgot = () => {
               className="w-full flex justify-center items-center rounded-md h-10 bg-brand-primary text-white font-extrabold"
               type="submit"
             >
-              {/* <Link to={"/sent-link"}>دریافت ایمیل بازیابی رمز عبور</Link> */}
-              دریافت ایمیل بازیابی رمز عبور
+              <Link to={"/sent-link"}>دریافت ایمیل بازیابی رمز عبور</Link>
+              {/* دریافت ایمیل بازیابی رمز عبور */}
             </button>
           </Form>
         </Formik>
