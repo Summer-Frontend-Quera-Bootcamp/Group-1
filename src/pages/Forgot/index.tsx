@@ -1,5 +1,6 @@
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+import AuthenticateLayout from "../../Layout/AuthenticateLayout";
 import AccountCard from "../../components/FormContainer/AccountCard";
 import Input from "../../components/FormContainer/Input";
 // import { Link } from "react-router-dom";
@@ -31,7 +32,7 @@ const Forgot = () => {
   });
 
   return (
-    <div className="w-full h-[100vh] flex justify-center items-center bg-brand-primary">
+    <AuthenticateLayout showSignup={false}>
       {/* ------------------------------Formik------------------------------ */}
       <AccountCard title="فراموشی رمز عبور">
         <Formik
@@ -57,7 +58,7 @@ const Forgot = () => {
         </Formik>
       </AccountCard>
       {/* ------------------------------Formik------------------------------ */}
-    </div>
+      </AuthenticateLayout>
   );
 };
 
