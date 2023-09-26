@@ -1,5 +1,6 @@
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+import AuthenticateLayout from "../../Layout/AuthenticateLayout";
 import AccountCard from "../../components/FormContainer/AccountCard";
 import Input from "../../components/FormContainer/Input";
 
@@ -42,7 +43,7 @@ const SignUp = () => {
   });
 
   return (
-    <div className="w-full h-[100vh] flex justify-center items-center bg-brand-primary">
+    <AuthenticateLayout showSignup={false}>
       {/* ------------------------------Formik------------------------------ */}
       <AccountCard title="ثبت‌نام در کوئرا تسک منیجر">
         <Formik
@@ -77,7 +78,7 @@ const SignUp = () => {
         </Formik>
       </AccountCard>
       {/* ------------------------------Formik------------------------------ */}
-    </div>
+    </AuthenticateLayout>
   );
 };
 
