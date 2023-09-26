@@ -1,8 +1,9 @@
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+import { Link } from "react-router-dom";
+import SignInLayout from "../../Layout/AuthenticateLayout";
 import AccountCard from "../../components/FormContainer/AccountCard";
 import Input from "../../components/FormContainer/Input";
-import { Link } from "react-router-dom";
 
 type Values = {
   email: string;
@@ -41,7 +42,7 @@ const SignIn = () => {
   });
 
   return (
-    <div className="w-full h-[100vh] flex justify-center items-center bg-brand-primary">
+    <SignInLayout showSignup={true}>
       {/* ------------------------------Formik------------------------------ */}
       <AccountCard title="به کوئرا تسک منیجر خوش برگشتی :)">
         <Formik
@@ -86,7 +87,7 @@ const SignIn = () => {
         </div>
       </AccountCard>
       {/* ------------------------------Formik------------------------------ */}
-    </div>
+      </SignInLayout>
   );
 };
 
