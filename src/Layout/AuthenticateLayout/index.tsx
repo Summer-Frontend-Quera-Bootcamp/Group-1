@@ -34,7 +34,7 @@ const AuthenticateLayout: React.FC<AuthenticateLayoutProps> = ({
             <>
               <p className="text-base font-medium">قبلا ثبت‌نام کرده‌ای؟</p>
               <Link
-                to={"/register"}
+                to={"/"}
                 className="flex font-extrabold text-sm w-[75px] h-[40px] p-[10px] rounded-md text-white bg-brand-primary justify-center items-center ]"
               >
                 ورود
