@@ -1,8 +1,13 @@
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import AccountWrapper from "../../components/AccountForm/AccountWrapper";
-import Inputs from "../../components/AccountForm/Inputs";
-import { Link } from "react-router-dom";
+import AccountCard from "../../components/FormContainer/AccountCard";
+import Input from "../../components/FormContainer/Input";
+
+type Values = {
+  fullName: string;
+  email: string;
+  password: string;
+};
 
 const SignUp = () => {
   const initialValues = {
@@ -11,8 +16,17 @@ const SignUp = () => {
     password: "",
   };
 
-  const onSubmit = (values) => {
-    console.log(values);
+  const onSubmit = (values: Values) => {
+    const db = localStorage;
+    if (db.getItem("email") && db.getItem("password")) {
+      console.log("You have an account here.");
+      alert("You have an account here.");
+    } else {
+      db.setItem("email", values.email);
+      db.setItem("password", values.password);
+      console.log("Your information has been saved!");
+      alert("Your information has been saved!");
+    }
   };
 
   const validationSchema = Yup.object({
@@ -30,7 +44,7 @@ const SignUp = () => {
   return (
     <div className="w-full h-[100vh] flex justify-center items-center bg-brand-primary">
       {/* ------------------------------Formik------------------------------ */}
-      <AccountWrapper title="ثبت‌نام در کوئرا تسک منیجر">
+      <AccountCard title="ثبت‌نام در کوئرا تسک منیجر">
         <Formik
           initialValues={initialValues}
           onSubmit={onSubmit}
@@ -38,30 +52,30 @@ const SignUp = () => {
           validateOnMount
         >
           <Form action="post" className="flex justify-between flex-col gap-2">
-            <Inputs label="نام کامل" type="fullName" autoCompleteField="name" />
+            <Input label="نام کامل" type="fullName" autoCompleteField="name" />
 
-            <Inputs label="ایمیل" type="email" autoCompleteField="email" />
+            <Input label="ایمیل" type="email" autoCompleteField="email" />
 
-            <Inputs
+            <Input
               label="رمز عبور"
               type="password"
               autoCompleteField="current-password"
             />
 
-            {/* <div className="mb-5 flex items-center gap-1">
+            <div className="mb-5 flex items-center gap-1">
               <input type="checkbox" id="checkBox" />
               <label htmlFor="checkBox">با قوانین و مقررات موافقم.</label>
-            </div> */}
+            </div>
 
             <button
-              className="w-full flex justify-center items-center rounded-md h-10 bg-brand-primary text-white"
+              className="w-full flex justify-center items-center rounded-md h-10 bg-brand-primary text-white font-extrabold"
               type="submit"
             >
-              ورود
+              ثبت‌نام
             </button>
           </Form>
         </Formik>
-      </AccountWrapper>
+      </AccountCard>
       {/* ------------------------------Formik------------------------------ */}
     </div>
   );
