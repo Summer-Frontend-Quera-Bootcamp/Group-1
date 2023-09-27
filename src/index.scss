@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "IranYekan Regular";
+  src: url(./assets/Fonts/iranyekanwebregular.woff);
+}
+
+@font-face {
+  font-family: "IranYekan Medium";
+  src: url(./assets/Fonts/iranyekanwebmedium.woff);
+}
+
+body {
+  font-family: "IranYekan Regular";
+}
+
 .ltr {
   direction: ltr;
 }
