@@ -1,11 +1,11 @@
 import { ErrorMessage, Field } from "formik";
 import ErrorContainer from "../ErrorContainer";
 
-type InputProps = {
+interface InputProps {
   label: string;
   type: string;
   autoCompleteField: string;
-};
+}
 
 const Input: React.FC<InputProps> = ({
   label,

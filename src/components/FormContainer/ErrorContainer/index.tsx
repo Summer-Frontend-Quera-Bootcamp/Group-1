@@ -1,8 +1,8 @@
 import "animate.css";
 
-type InputsErrorProps = {
+interface InputsErrorProps {
   children?: JSX.Element | JSX.Element[];
-};
+}
 
 const InputsError: React.FC<InputsErrorProps> = ({ children }): JSX.Element => {
   return (

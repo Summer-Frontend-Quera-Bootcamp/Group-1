@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
 
-type AuthenticateLayoutProps = {
+interface AuthenticateLayoutProps {
   showSignup: boolean;
   children?: JSX.Element | JSX.Element[];
-};
+}
 
 const AuthenticateLayout: React.FC<AuthenticateLayoutProps> = ({
   showSignup,
   children,
 }): JSX.Element => {
   return (
-    <div >
+    <div>
       {/* Place for more Components as Children */}
       <div className=" flex justify-center items-center fixed w-full right-0 top-1/2 bottom-1/2">
         {children}
-      </div >
+      </div>
       <div className="flex justify-between mt-[80px] ml-[80px] mr-[80px]">
         <h1 className="text-[32px] linear-gradient-heading font-extrabold items-baseline">
           کوئرا تسک منیجر
