@@ -1,4 +1,6 @@
-const Filter = () => {
+import {JSX} from "react";
+
+const Filter: React.FC = (): JSX.Element => {
     return (
         <div>
 
