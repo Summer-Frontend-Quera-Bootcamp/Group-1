@@ -1,5 +1,5 @@
 import React, {ChangeEvent, JSX, useState} from "react";
-import close_icon from "../../../assets/Icons/close_icon.svg";
+import close_icon from "../../../../assets/Icons/close_icon.svg";
 
 interface IWhere {
     showMethod: (newValue: boolean) => void;

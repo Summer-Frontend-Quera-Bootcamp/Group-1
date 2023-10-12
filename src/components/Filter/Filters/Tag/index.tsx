@@ -1,5 +1,5 @@
 import React, {JSX, useState, ChangeEvent} from "react";
-import close_icon from "./../../../assets/Icons/close_icon.svg"
+import close_icon from "../../../../assets/Icons/close_icon.svg"
 
 interface ITag {
     showMethod: (newValue: boolean) => void;
