@@ -1,5 +1,14 @@
+// const Test = () => {
+//   return <div>Test</div>;
+// };
+
+import Calendar from "../../components/Calender";
+
+
+// export default Test;
+
 const Test = () => {
-  return <div>Test</div>;
+  return <div><Calendar /></div>;
 };
 
 
