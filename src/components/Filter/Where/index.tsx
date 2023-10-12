@@ -1,6 +1,10 @@
 import React, {ChangeEvent, JSX, useState} from "react";
 import close_icon from "../../../assets/Icons/close_icon.svg";
 
+interface IWhere {
+    showMethod: (newValue: boolean) => void;
+    showValue: boolean;
+}
 
 interface IData {
     txt: string;
@@ -31,7 +35,7 @@ const mainData: IData[] = [
     }
 ]
 
-const Where: React.FC = (): JSX.Element => {
+const Where: React.FC<IWhere> = ({showMethod, showValue}): JSX.Element => {
     const [data, setData] = useState<IData[]>(mainData);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -47,7 +51,7 @@ const Where: React.FC = (): JSX.Element => {
 
     return (
         <div
-            className={`flex flex-col items-stretch justify-start gap-[11px] absolute box-border text-[12px] w-[182px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] rounded-[8px] bg-[#FFF] top-[30px] left-0`}>
+            className={`animate__animated animate__fadeInUp flex flex-col items-stretch justify-start gap-[11px] absolute right-[87px] box-border text-[12px] w-[182px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] rounded-[8px] bg-[#FFF] top-[30px] left-0`}>
             <div
                 className={`flex flex-row items-center justify-center gap-[8px] px-[8px] py-[6px] border-b-[.5px] border-solid border-[#E8EAED] `}>
                 <img src={close_icon} alt="" width={20.83} className={`select-none`}/>
@@ -59,7 +63,7 @@ const Where: React.FC = (): JSX.Element => {
                 {
                     data.map((d: IData) => {
                         return (
-                            <div key={d.id} className={`cursor-pointer select-none`}>
+                            <div onClick={() => showMethod(!showValue)} key={d.id} className={`cursor-pointer select-none`}>
                                 <div
                                     className={`inline-flex items-center justify-center rounded-[14px] px-[8px] h-[24px] bg-[#FFF] `}>
                                     {
