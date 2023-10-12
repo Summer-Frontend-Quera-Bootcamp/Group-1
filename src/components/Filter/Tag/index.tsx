@@ -50,7 +50,7 @@ const Tag: React.FC = (): JSX.Element => {
             className={`flex flex-col items-stretch justify-start gap-[16px] box-border text-[12px] w-[146px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] bg-[#FFF] absolute top-[30px] left-0 rounded-[8px]`}>
             <div
                 className={`flex flex-row items-center justify-center gap-[8px] px-[8px] py-[4px] border-b-[.5px] border-solid border-[#E8EAED] `}>
-                <img src={close_icon} alt="" width={20.83}/>
+                <img src={close_icon} alt="" width={20.83} className={`select-none`}/>
                 <input type="text" placeholder={`جستجو`} onChange={handleChange}
                        className={`w-full outline-none text-[12px]`}/>
             </div>
