@@ -1,15 +1,5 @@
-// const Test = () => {
-//   return <div>Test</div>;
-// };
-
-import Calendar from "../../components/Calender";
-
-
-// export default Test;
-
 const Test = () => {
-  return <div><Calendar /></div>;
+  return <div>Test</div>;
 };
-
 
 export default Test;
