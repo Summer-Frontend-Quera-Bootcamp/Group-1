@@ -3,6 +3,8 @@ import close_icon from "../../../../assets/Icons/close_icon.svg"
 
 interface ITag {
     showMethod: (newValue: boolean) => void;
+    setText: (newValue: string) => void;
+    setAnswer: (newValue: string) => void;
     showValue: boolean;
 }
 interface IData {
@@ -16,28 +18,28 @@ interface IData {
 const mainData: IData[] = [
     {
         txt: "درس",
-        id: "lesson",
+        id: "1",
         value: "lesson",
         color: "#228BE6",
         bgColor: "#D0EBFF",
     },
     {
         txt: "کار",
-        id: "work",
+        id: "2",
         value: "work",
         color: "#7950F2",
         bgColor: "#E5DBFF",
     },
     {
         txt: "پروژه",
-        id: "project",
+        id: "3",
         value: "project",
         color: "#15AABF",
         bgColor: "#C5F6FA",
     }
 ]
 
-const Tag: React.FC<ITag> = ({showMethod, showValue}): JSX.Element => {
+const Tag: React.FC<ITag> = ({showMethod, showValue, setText, setAnswer}): JSX.Element => {
     const [data, setData] = useState<IData[]>(mainData);
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const searchTerm = event.target.value.trim();
@@ -48,6 +50,12 @@ const Tag: React.FC<ITag> = ({showMethod, showValue}): JSX.Element => {
         const filteredData = mainData.filter((d: IData) => d.txt.trim().includes(searchTerm));
         setData(filteredData);
     };
+
+    const clickHandler = (tagValue: string, tagText: string) => {
+        setAnswer(tagValue);
+        setText(tagText);
+        showMethod(!showValue);
+    }
 
     return (
         <div
@@ -64,7 +72,7 @@ const Tag: React.FC<ITag> = ({showMethod, showValue}): JSX.Element => {
                 {
                     data.map((d: IData) => {
                         return (
-                            <div onClick={() => showMethod(!showValue)} key={d.id} className={`cursor-pointer select-none`}>
+                            <div onClick={() => clickHandler(d.value, d.txt)} key={d.id} className={`cursor-pointer select-none`}>
                                 <div
                                     className={`inline-flex items-center justify-center rounded-[14px] px-[8px] h-[24px] bg-[${d.bgColor}] text-[${d.color}] `}>
                                     {
