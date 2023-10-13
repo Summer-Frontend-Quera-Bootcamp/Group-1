@@ -3,6 +3,8 @@ import close_icon from "../../../../assets/Icons/close_icon.svg";
 
 interface IWhere {
     showMethod: (newValue: boolean) => void;
+    setText: (newValue: string) => void;
+    setAnswer: (newValue: string) => void;
     showValue: boolean;
 }
 
@@ -15,27 +17,27 @@ interface IData {
 const mainData: IData[] = [
     {
         txt: "تاریخ",
-        id: "history",
+        id: "1",
         value: "history",
     },
     {
         txt: "تگ",
-        id: "tag",
+        id: "2",
         value: "tag",
     },
     {
         txt: "اعضا",
-        id: "members",
+        id: "3",
         value: "members",
     },
     {
         txt: "اولویت",
-        id: "priority",
+        id: "4",
         value: "priority",
     }
 ]
 
-const Where: React.FC<IWhere> = ({showMethod, showValue}): JSX.Element => {
+const Where: React.FC<IWhere> = ({showMethod, showValue, setAnswer, setText}): JSX.Element => {
     const [data, setData] = useState<IData[]>(mainData);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -48,7 +50,11 @@ const Where: React.FC<IWhere> = ({showMethod, showValue}): JSX.Element => {
         setData(filteredData);
     };
 
-
+    const clickHandler = (whereValue: string, whereText: string) => {
+        setAnswer(whereValue);
+        setText(whereText);
+        showMethod(!showValue);
+    }
     return (
         <div
             className={`animate__animated animate__fadeInUp flex flex-col items-stretch justify-start gap-[11px] absolute right-[87px] box-border text-[12px] w-[182px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] rounded-[8px] bg-[#FFF] top-[30px] left-0`}>
@@ -63,7 +69,7 @@ const Where: React.FC<IWhere> = ({showMethod, showValue}): JSX.Element => {
                 {
                     data.map((d: IData) => {
                         return (
-                            <div onClick={() => showMethod(!showValue)} key={d.id} className={`cursor-pointer select-none`}>
+                            <div onClick={() => clickHandler(d.value, d.txt)} key={d.id} className={`cursor-pointer select-none`}>
                                 <div
                                     className={`inline-flex items-center justify-center rounded-[14px] px-[8px] h-[24px] bg-[#FFF] `}>
                                     {
