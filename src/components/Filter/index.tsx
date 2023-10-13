@@ -21,11 +21,24 @@ const Filter:React.FC = (): JSX.Element => {
     const [showFilter, setShowFilter] = useState(true);
 
     // Filtering
+    //     ion
     const [filtering, setFiltering] = useState<IFiltering>(f);
+    const setIon = (value: string) => {
+        f.ion = value;
+        setFiltering(f);
+        console.log(filtering)
+    }
+    //     tag
     const setTag = (value: string) => {
         f.tag = value;
         setFiltering(f);
-        console.log(filtering)
+        console.log(filtering);
+    }
+    //     where
+    const setWhere = (value: string) => {
+        f.where = value;
+        setFiltering(f);
+        console.log(filtering);
     }
 
     return showFilter ? (
@@ -40,7 +53,7 @@ const Filter:React.FC = (): JSX.Element => {
             </div>
             <div className={`flex flex-col items-stretch justify-start gap-[24px]`}>
                 {
-                    showFilters ? <Filters setTagMethod={setTag} showMethodFilters={setShowFilters} /> : null
+                    showFilters ? <Filters setWhereMethod={setWhere} setTagMethod={setTag} setIonMethod={setIon} showMethodFilters={setShowFilters} /> : null
                 }
                 <div onClick={() => setShowFilters(true)} className={`text-[12px] font-extrabold text-[#208D8E] cursor-pointer select-none`}>افزودن فیلتر جدید</div>
             </div>
