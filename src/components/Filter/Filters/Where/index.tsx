@@ -3,7 +3,7 @@ import Icons from "../../../../icons/Icons.tsx";
 
 interface IWhere {
     showMethod: (newValue: boolean) => void;
-    setText: (newValue: string) => void;
+    setElement: (newValue: JSX.Element) => void;
     setAnswer: (newValue: string) => void;
     showValue: boolean;
 }
@@ -37,7 +37,7 @@ const mainData: IData[] = [
     }
 ]
 
-const Where: React.FC<IWhere> = ({showMethod, showValue, setAnswer, setText}): JSX.Element => {
+const Where: React.FC<IWhere> = ({showMethod, showValue, setAnswer, setElement}): JSX.Element => {
     const [data, setData] = useState<IData[]>(mainData);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -50,9 +50,9 @@ const Where: React.FC<IWhere> = ({showMethod, showValue, setAnswer, setText}): J
         setData(filteredData);
     };
 
-    const clickHandler = (whereValue: string, whereText: string) => {
+    const clickHandler = (whereValue: string, whereElement: JSX.Element) => {
         setAnswer(whereValue);
-        setText(whereText);
+        setElement(whereElement);
         showMethod(!showValue);
     }
     return (
@@ -71,7 +71,7 @@ const Where: React.FC<IWhere> = ({showMethod, showValue, setAnswer, setText}): J
                 {
                     data.map((d: IData) => {
                         return (
-                            <div onClick={() => clickHandler(d.value, d.txt)} key={d.id} className={`cursor-pointer select-none`}>
+                            <div onClick={() => clickHandler(d.value, (<span className={`text-[#1E1E1E]`}>{d.txt}</span>))} key={d.id} className={`cursor-pointer select-none`}>
                                 <div
                                     className={`inline-flex items-center justify-center rounded-[14px] px-[8px] h-[24px] bg-[#FFF] `}>
                                     {

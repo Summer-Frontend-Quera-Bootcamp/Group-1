@@ -22,7 +22,7 @@ const Filters: React.FC<IFilters> = ({showMethodFilters, setIonMethod, setTagMet
     // Where settings
     const [showWhere, setShowWhere] = useState(false)
     const [whereSelect, setWhereSelect] = useState<string>("");
-    const [whereText, setWhereText] = useState<string>("انتخاب کنید");
+    const [whereElement, setWhereElement] = useState<string | JSX.Element>("انتخاب کنید");
     setWhereMethod(whereSelect);
 
     return (
@@ -30,7 +30,7 @@ const Filters: React.FC<IFilters> = ({showMethodFilters, setIonMethod, setTagMet
             <div className={`relative flex flex-row items-center justify-start gap-[8px] text-[14px]`}>
                 <div>تسک‌هایی که</div>
                 <div onClick={() => setShowWhere(!showWhere)} className={`flex flex-row items-center justify-between relative w-[182px] border border-solid border-[#E9EBF0] rounded-[6px] text-[12px] text-[#959595] box-border px-[8px] pt-[5px] pb-[4px] cursor-pointer select-none`}>
-                    <div>{whereText}</div>
+                    <div>{whereElement}</div>
                     <div>
                         {
                             Icons.chevronDown()
@@ -38,7 +38,7 @@ const Filters: React.FC<IFilters> = ({showMethodFilters, setIonMethod, setTagMet
                     </div>
                 </div>
                 {
-                    showWhere ? <Where setText={setWhereText} setAnswer={setWhereSelect} showValue={showWhere} showMethod={setShowWhere} /> : null
+                    showWhere ? <Where setElement={setWhereElement} setAnswer={setWhereSelect} showValue={showWhere} showMethod={setShowWhere} /> : null
                 }
                 <div>آن‌ها</div>
                 <div onClick={() => setShowTag(!showTag)} className={`flex flex-row items-center justify-between relative w-[146px] border border-solid border-[#E9EBF0] rounded-[6px] text-[12px] text-[#959595] box-border px-[8px] pt-[5px] pb-[4px] cursor-pointer select-none`}>
