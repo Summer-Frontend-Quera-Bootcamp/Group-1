@@ -4,7 +4,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import fa from "@fullcalendar/core/locales/fa";
 import "./index.scss";
 import NewTask from "./components/NewTask";
-import addIcon from "../../assets/Svg/add.svg";
+import Icons from "../../icons/Icons";
 
 const Calendar = () => {
   const events = [
@@ -47,6 +47,7 @@ const Calendar = () => {
           prev: "arrow-left-sqaure-fill",
           next: "chevrons-right",
         }}
+        
         eventBackgroundColor="#208D8E"
         eventBorderColor="transparent"
         height={"90vh"}
@@ -55,7 +56,7 @@ const Calendar = () => {
         onClick={openHandler}
         className="z-10 mr-auto -translate-y-4 flex items-center gap-1 text-white bg-brand-primary px-3 py-2 rounded-md"
       >
-        <img src={addIcon} alt="add icon" />
+        {Icons.addBox("#fff")}
         تسک جدید
       </button>
       <NewTask

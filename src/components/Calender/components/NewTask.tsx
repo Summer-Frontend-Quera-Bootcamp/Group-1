@@ -1,6 +1,7 @@
 import { useState } from "react";
-import closeIcon from "../../../assets/Svg/close.svg";
-import flagIcon from "../../../assets/Svg/flag.svg";
+// import closeIcon from "../../../assets/Svg/close.svg";
+// import flagIcon from "../../../assets/Svg/flag.svg";
+import Icons from "../../../icons/Icons";
 import moment from "jalali-moment";
 import { shamsiMonths } from "../../../constants/months";
 import "animate.css";
@@ -46,9 +47,7 @@ const NewTask: React.FC<NewTaskProps> = ({
         <div className="w-screen h-screen flex justify-center items-center z-20 bg-black-primary/40 backdrop-blur-sm absolute top-2/4 left-2/4 absolute-center animate__animated animate__fadeIn">
           <div className="w-[463px] bg-white p-5 flex flex-col gap-8 border border-brand-primary rounded-lg new-task-box-shadow ">
             <div className="task-name flex gap-2 items-center">
-              <button onClick={closeHandler}>
-                <img className="w-8" src={closeIcon} alt="close icon" />
-              </button>
+              <button onClick={closeHandler}>{Icons.close("#c8c8c8")}</button>
               <input
                 onChange={inputChangeHandler}
                 className="w-full placeholder:text-[#c8c8c8] text-xl font-medium focus:outline-0 text-black-secondary"
@@ -58,11 +57,12 @@ const NewTask: React.FC<NewTaskProps> = ({
             </div>
             <div className="create-task flex items-center justify-between">
               <div className="flex gap-3 items-center">
-                <img
+                {/* <img
                   className="cursor-pointer"
                   src={flagIcon}
                   alt="flag icon"
-                />
+                /> */}
+                {Icons.flag()}
                 <p className="text-xl font-medium text-brand-primary">
                   {moment(new Date(), "YYYY/MM/DD").locale("fa").format("DD")}{" "}
                   {modalMonth}
