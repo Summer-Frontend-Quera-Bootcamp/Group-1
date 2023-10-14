@@ -3,7 +3,7 @@ import Icons from "../../../../icons/Icons.tsx";
 
 interface ITag {
     showMethod: (newValue: boolean) => void;
-    setText: (newValue: string) => void;
+    setText: (newValue: string | JSX.Element) => void;
     setAnswer: (newValue: string) => void;
     showValue: boolean;
 }
@@ -51,9 +51,9 @@ const Tag: React.FC<ITag> = ({showMethod, showValue, setText, setAnswer}): JSX.E
         setData(filteredData);
     };
 
-    const clickHandler = (tagValue: string, tagText: string) => {
+    const clickHandler = (tagValue: string, tagElement: JSX.Element) => {
         setAnswer(tagValue);
-        setText(tagText);
+        setText(tagElement);
         showMethod(!showValue);
     }
 
@@ -70,13 +70,25 @@ const Tag: React.FC<ITag> = ({showMethod, showValue, setText, setAnswer}): JSX.E
             </div>
 
             <div className={`flex flex-col items-stretch justify-start gap-[16px] px-[8px] pb-[8px]`}>
-
                 {
                     data.map((d: IData) => {
                         return (
-                            <div onClick={() => clickHandler(d.value, d.txt)} key={d.id} className={`cursor-pointer select-none`}>
+                            <div onClick={() => clickHandler(d.value, (<div
+                                style={{
+                                    backgroundColor: d.bgColor,
+                                    color: d.color,
+                                }}
+                                className={`inline-flex items-center justify-center rounded-[14px] px-[8px] h-[24px]`}>
+                                {
+                                    d.txt
+                                }
+                            </div>))} key={d.id} className={`cursor-pointer select-none`}>
                                 <div
-                                    className={`inline-flex items-center justify-center rounded-[14px] px-[8px] h-[24px] bg-[${d.bgColor}] text-[${d.color}] `}>
+                                    style={{
+                                        backgroundColor: d.bgColor,
+                                        color: d.color,
+                                    }}
+                                    className={`inline-flex items-center justify-center rounded-[14px] px-[8px] h-[24px]`}>
                                     {
                                         d.txt
                                     }

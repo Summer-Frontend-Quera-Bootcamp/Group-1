@@ -17,7 +17,7 @@ const Filters: React.FC<IFilters> = ({showMethodFilters, setIonMethod, setTagMet
     // Tag settings
     const [showTag, setShowTag] = useState(false)
     const [tagSelect, setTagSelect] = useState<string>("");
-    const [tagText, setTagText] = useState<string>("انتخاب کنید");
+    const [tagElement, setTagElement] = useState<JSX.Element | string>("انتخاب کنید");
     setTagMethod(tagSelect);
     // Where settings
     const [showWhere, setShowWhere] = useState(false)
@@ -42,7 +42,7 @@ const Filters: React.FC<IFilters> = ({showMethodFilters, setIonMethod, setTagMet
                 }
                 <div>آن‌ها</div>
                 <div onClick={() => setShowTag(!showTag)} className={`flex flex-row items-center justify-between relative w-[146px] border border-solid border-[#E9EBF0] rounded-[6px] text-[12px] text-[#959595] box-border px-[8px] pt-[5px] pb-[4px] cursor-pointer select-none`}>
-                    <div>{tagText}</div>
+                    <div>{tagElement}</div>
                     <div>
                         {
                             Icons.chevronDown()
@@ -50,7 +50,7 @@ const Filters: React.FC<IFilters> = ({showMethodFilters, setIonMethod, setTagMet
                     </div>
                 </div>
                 {
-                    showTag ? <Tag setText={setTagText} setAnswer={setTagSelect} showValue={showTag} showMethod={setShowTag} /> : null
+                    showTag ? <Tag setText={setTagElement} setAnswer={setTagSelect} showValue={showTag} showMethod={setShowTag} /> : null
                 }
                 <div onClick={() => setShowION(!showION)} className={`flex flex-row items-center justify-between relative w-[107px] border border-solid border-[#E9EBF0] rounded-[6px] text-[12px] box-border px-[8px] pt-[5px] pb-[4px] cursor-pointer select-none`}>
                     <div>{ionText}</div>
