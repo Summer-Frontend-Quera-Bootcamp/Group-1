@@ -1,6 +1,6 @@
 import {JSX, useState} from "react";
-import close__icone from "./../../assets/Icons/close_icon.svg"
 import {Filters} from "./Scripts"
+import Icons from "./../../icons/Icons.tsx"
 
 interface IFiltering {
     where: string;
@@ -48,7 +48,9 @@ const Filter:React.FC = (): JSX.Element => {
                     فیلترها
                 </div>
                 <div onClick={() => setShowFilter(false)} className={`cursor-pointer select-none`}>
-                    <img src={close__icone} alt=""/>
+                    {
+                        Icons.close()
+                    }
                 </div>
             </div>
             <div className={`flex flex-col items-stretch justify-start gap-[24px]`}>
