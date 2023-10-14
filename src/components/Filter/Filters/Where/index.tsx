@@ -1,5 +1,5 @@
 import React, {ChangeEvent, JSX, useState} from "react";
-import close_icon from "../../../../assets/Icons/close_icon.svg";
+import Icons from "../../../../icons/Icons.tsx";
 
 interface IWhere {
     showMethod: (newValue: boolean) => void;
@@ -60,7 +60,9 @@ const Where: React.FC<IWhere> = ({showMethod, showValue, setAnswer, setText}): J
             className={`animate__animated animate__fadeInUp flex flex-col items-stretch justify-start gap-[11px] absolute right-[87px] box-border text-[12px] w-[182px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] rounded-[8px] bg-[#FFF] top-[30px] left-0`}>
             <div
                 className={`flex flex-row items-center justify-center gap-[8px] px-[8px] py-[6px] border-b-[.5px] border-solid border-[#E8EAED] `}>
-                <img src={close_icon} alt="" width={20.83} className={`select-none`}/>
+                {
+                    Icons.search("#208D8E")
+                }
                 <input type="text" placeholder={`جستجو بین فیلترها`} onChange={handleChange}
                        className={`w-full outline-none text-[12px]`}/>
             </div>
