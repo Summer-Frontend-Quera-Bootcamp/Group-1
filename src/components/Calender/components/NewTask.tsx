@@ -1,6 +1,4 @@
 import { useState } from "react";
-// import closeIcon from "../../../assets/Svg/close.svg";
-// import flagIcon from "../../../assets/Svg/flag.svg";
 import Icons from "../../../icons/Icons";
 import moment from "jalali-moment";
 import { shamsiMonths } from "../../../constants/months";
@@ -57,11 +55,6 @@ const NewTask: React.FC<NewTaskProps> = ({
             </div>
             <div className="create-task flex items-center justify-between">
               <div className="flex gap-3 items-center">
-                {/* <img
-                  className="cursor-pointer"
-                  src={flagIcon}
-                  alt="flag icon"
-                /> */}
                 {Icons.flag()}
                 <p className="text-xl font-medium text-brand-primary">
                   {moment(new Date(), "YYYY/MM/DD").locale("fa").format("DD")}{" "}
