@@ -1060,13 +1060,34 @@ const Icons = {
 	flag: (color = '#C1C1C1') => (
 		<svg
 			xmlns='http://www.w3.org/2000/svg'
-			width='20'
-			height='5'
-			viewBox='0 0 20 5'
+			width='30'
+			height='30'
+			viewBox='0 0 30 30'
 			fill='none'
 		>
 			<path
-				d='M1.42139 2.45099C1.42139 2.45099 2.49369 1.56006 5.71059 1.56006C8.92749 1.56006 11.0721 3.67647 14.289 3.67647C17.5059 3.67647 18.5782 2.47917 18.5782 2.47917'
+				d='M6.42146 26.0294V5.11035'
+				stroke={color}
+				stroke-width='2.3897'
+				stroke-linecap='round'
+				stroke-linejoin='round'
+			/>
+			<path
+				d='M23.5787 17.4754V5.19604'
+				stroke={color}
+				stroke-width='2.3897'
+				stroke-linecap='round'
+				stroke-linejoin='round'
+			/>
+			<path
+				d='M6.42163 17.451C6.42163 17.451 7.49393 16.5601 10.7108 16.5601C13.9277 16.5601 16.0723 18.6765 19.2892 18.6765C22.5061 18.6765 23.5784 17.4792 23.5784 17.4792'
+				stroke={color}
+				stroke-width='2.3897'
+				stroke-linecap='round'
+				stroke-linejoin='round'
+			/>
+			<path
+				d='M6.42163 5.11286C6.42163 5.11286 7.49393 3.9707 10.7108 3.9707C13.9277 3.9707 16.0723 6.08712 19.2892 6.08712C22.5061 6.08712 23.5784 5.19619 23.5784 5.19619'
 				stroke={color}
 				stroke-width='2.3897'
 				stroke-linecap='round'
