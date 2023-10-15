@@ -5,20 +5,22 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Forgot from "./pages/Forgot";
 import ResetLinkSent from "./pages/Forgot/ResetLinkSent";
-
+import Board from "./pages/BoardListView";
 function App() {
   return (
     <>
-      <BrowserRouter>
+         <BrowserRouter>
         <Routes>
           <Route path="/" element={<SignIn />} />
           <Route path="/register" element={<SignUp />} />
           <Route path="/forgot" element={<Forgot />} />
           <Route path="sent-link" element={<ResetLinkSent />} />
           <Route path="/test" element={<Test />} />
+          <Route path="/board-list-view" element={<Board />} />
         </Routes>
       </BrowserRouter>
     </>
+ 
   );
 }
 
