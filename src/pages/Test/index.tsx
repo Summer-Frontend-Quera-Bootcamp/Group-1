@@ -1,9 +1,5 @@
-import { TaskInformation } from "../../components/TaskInformation";
-
 const Test = () => {
-    return <div>
-        <TaskInformation/>
-    </div>;
+    return <div>Test</div>;
 };
 
 
