@@ -1,8 +1,8 @@
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import AuthenticateLayout from "../../Layout/AuthenticateLayout";
-import AccountCard from "../../components/FormContainer/AccountCard";
-import Input from "../../components/FormContainer/Input";
+import AccountCard from "../../components/FormContainer/components/AccountCard";
+import Input from "../../components/FormContainer/components/Input";
 import { Link } from "react-router-dom";
 
 type Values = {
@@ -58,7 +58,7 @@ const Forgot = () => {
         </Formik>
       </AccountCard>
       {/* ------------------------------Formik------------------------------ */}
-      </AuthenticateLayout>
+    </AuthenticateLayout>
   );
 };
 

@@ -2,8 +2,8 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import SignInLayout from "../../Layout/AuthenticateLayout";
-import AccountCard from "../../components/FormContainer/AccountCard";
-import Input from "../../components/FormContainer/Input";
+import AccountCard from "../../components/FormContainer/components/AccountCard";
+import Input from "../../components/FormContainer/components/Input";
 
 type Values = {
   email: string;
@@ -87,7 +87,7 @@ const SignIn = () => {
         </div>
       </AccountCard>
       {/* ------------------------------Formik------------------------------ */}
-      </SignInLayout>
+    </SignInLayout>
   );
 };
 

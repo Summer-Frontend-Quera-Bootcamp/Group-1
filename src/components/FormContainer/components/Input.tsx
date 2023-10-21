@@ -1,5 +1,5 @@
 import { ErrorMessage, Field } from "formik";
-import ErrorContainer from "../ErrorContainer";
+import ErrorContainer from "./ErrorContainer";
 
 interface InputProps {
   label: string;
