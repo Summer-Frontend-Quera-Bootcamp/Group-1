@@ -1,4 +1,4 @@
-import "animate.css"
+import "animate.css";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
@@ -77,7 +77,11 @@ const SignIn = () => {
             action="post"
             className="flex justify-between flex-col gap-2 mb-6"
           >
-            <Input label="ایمیل" type="username" autoCompleteField="email" />
+            <Input
+              label="نام کاربری"
+              type="username"
+              autoCompleteField="email"
+            />
 
             <Input
               label="رمز عبور"
@@ -86,7 +90,7 @@ const SignIn = () => {
             />
 
             <Link
-              className="text-sm w-fit text-brand-primary mt-[-20px] mb-5"
+              className="text-sm w-fit mt-[-20px] mb-5 relative after:absolute after:bottom-[-2px] after:left-0  after:w-full after:h-[1px] after:bg-black-primary"
               to={"/forgot"}
             >
               رمز عبور را فراموش کرده‌ای؟
