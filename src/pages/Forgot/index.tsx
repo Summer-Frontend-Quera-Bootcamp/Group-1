@@ -48,12 +48,17 @@ const Forgot = () => {
             <Input label="ایمیل" type="email" autoCompleteField="email" />
 
             <button
-              className="w-full flex justify-center items-center rounded-md h-10 bg-brand-primary text-white font-extrabold"
+              className="w-full flex justify-center items-center rounded-md h-10 bg-brand-primary text-white font-extrabold mb-4"
               type="submit"
             >
-              <Link to={"/sent-link"}>دریافت ایمیل بازیابی رمز عبور</Link>
-              {/* دریافت ایمیل بازیابی رمز عبور */}
+              دریافت ایمیل بازیابی رمز عبور
             </button>
+            <Link
+              className="text-center font-extrabold text-brand-primary -mb-6"
+              to={"/"}
+            >
+              بازگشت
+            </Link>
           </Form>
         </Formik>
       </AccountCard>
