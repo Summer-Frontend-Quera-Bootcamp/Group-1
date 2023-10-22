@@ -1,3 +1,4 @@
+import "animate.css"
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
@@ -58,7 +59,7 @@ const SignIn = () => {
       <AccountCard title="به کوئرا تسک منیجر خوش برگشتی :)">
         {/* Authentication Error Handling */}
         {apiError ? (
-          <div className="text-center bg-red-700 text-white px-5 mb-5 rounded-md">
+          <div className="text-center bg-red-700 text-white px-5 mb-5 rounded-md animate__animated animate__fadeIn">
             {apiError}
           </div>
         ) : (

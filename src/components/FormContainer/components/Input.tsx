@@ -10,9 +10,7 @@ interface InputProps {
 const Input: React.FC<InputProps> = ({
   label,
   type,
-  autoCompleteField,
-  // handleChange,
-  // handleBlur
+  autoCompleteField
 }): JSX.Element => {
   return (
     <>
