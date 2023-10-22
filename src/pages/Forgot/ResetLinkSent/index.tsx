@@ -6,7 +6,7 @@ const ResetLinkSent = () => {
     <AuthenticateLayout showSignup={false}>
       <AccountCard title="فراموشی رمز عبور">
         <p className="text-sm text-center">
-          لینک بازیابی رمز عبور برای شما ایمیل شد. لطفا ایمیل خود را بررسی کنید.
+          لینک تغییر رمز عبور برای شما ایمیل شد. لطفا ایمیل خود را بررسی کنید.
         </p>
       </AccountCard>
     </AuthenticateLayout>
