@@ -90,7 +90,7 @@ const SignIn = () => {
             />
 
             <Link
-              className="text-sm w-fit mt-[-20px] mb-5 relative after:absolute after:bottom-[-2px] after:left-0  after:w-full after:h-[1px] after:bg-black-primary"
+              className="text-sm w-fit mt-[-20px] mb-5 underline underline-offset-8"
               to={"/forgot"}
             >
               رمز عبور را فراموش کرده‌ای؟
