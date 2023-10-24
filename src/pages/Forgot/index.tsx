@@ -89,7 +89,7 @@ const Forgot = () => {
                 className="w-full flex justify-center items-center rounded-md h-10 bg-brand-primary text-white font-extrabold"
                 type="submit"
               >
-                ثبت‌نام
+                دریافت ایمیل بازیابی رمز عبور
               </button>
             )}
             <Link
