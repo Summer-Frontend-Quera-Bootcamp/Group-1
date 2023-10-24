@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import AuthenticateLayout from "../../Layout/AuthenticateLayout";
 import AccountCard from "../../components/FormContainer/components/AccountCard";
 import Input from "../../components/FormContainer/components/Input";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { baseUrl } from "../../constants/api";
 
@@ -15,8 +15,9 @@ type Values = {
 
 const ResetPassword = () => {
   const [apiError, setApiError] = useState("");
+  const [apiSuccess, setApiSuccess] = useState("");
   const [loading, setLoading] = useState(false);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const initialValues = {
     password: "",
@@ -24,22 +25,28 @@ const ResetPassword = () => {
   };
 
   const onSubmit = async (values: Values) => {
-    console.log(values);
+    // # Getting Token from url coming from user's Email
+    const accessToken = window.location.href.split("=")[1];
+
+    // # Create new object of Values
+    const updatedValues = { ...values, token: accessToken };
 
     setLoading(true);
     await axios({
       method: "patch",
       url: `${baseUrl}accounts/reset-password/set-password/`,
-      data: values,
+      data: updatedValues,
     })
-      // .then(() => {
-      //   setLoading(false);
-      //   setApiError("");
-      //   navigate("/");
-      // })
+      .then(() => {
+        setLoading(false);
+        setApiSuccess("رمز عبور با موفقیت تغییر یافت");
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+      })
       .catch((error) => {
         setLoading(false);
-        console.log(error);
+        setApiError(error.response.data.detail);
       });
   };
 
@@ -66,6 +73,17 @@ const ResetPassword = () => {
         ) : (
           <></>
         )}
+        {/* ----------------------------- */}
+
+        {/* Authentication Success */}
+        {apiSuccess ? (
+          <div className="text-center bg-green-300 text-white px-5 mb-5 rounded-md animate__animated animate__fadeIn">
+            {apiSuccess}
+          </div>
+        ) : (
+          <></>
+        )}
+        {/* ----------------------------- */}
 
         <Formik
           initialValues={initialValues}
