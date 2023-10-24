@@ -1292,6 +1292,30 @@ const Icons = {
 			/>
 		</svg>
 	),
+	arrowRight: () => (
+		<svg
+			xmlns='http://www.w3.org/2000/svg'
+			width='24'
+			height='24'
+			viewBox='0 0 24 24'
+			fill='none'
+		>
+			<path
+				d='M4.48001 11.98H19.47'
+				stroke='white'
+				stroke-width='1.5'
+				stroke-linecap='round'
+				stroke-linejoin='round'
+			/>
+			<path
+				d='M13.483 5.98779L19.52 11.9998L13.483 18.0118'
+				stroke='white'
+				stroke-width='1.5'
+				stroke-linecap='round'
+				stroke-linejoin='round'
+			/>
+		</svg>
+	),
 };
 
 export default Icons;
