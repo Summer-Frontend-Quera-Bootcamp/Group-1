@@ -18,6 +18,7 @@ type Values = {
 
 const SignUp = () => {
   const [apiError, setApiError] = useState("");
+  const [apiSuccess, setApiSuccess] = useState("");
   const [loading, setLoading] = useState(false);
   const [showRules, setShowRules] = useState(false);
   const navigate = useNavigate();
@@ -35,15 +36,22 @@ const SignUp = () => {
       url: `${baseUrl}accounts/`,
       data: values,
     })
-      .then((response) => {
-        if (response.status === 201) {
+      .then(() => {
+        setApiSuccess("ایمیل بازیابی برای شما ارسال شد");
+        setTimeout(() => {
           navigate("/");
-        }
+        }, 3000);
       })
       .catch((error) => {
-        if (error.response) {
+        console.log(error);
+
+        if (error.response.data.email) {
           setLoading(false);
           setApiError(error.response.data.email);
+        }
+        if (error.response.data.username) {
+          setLoading(false);
+          setApiError(error.response.data.username);
         }
       });
   };
@@ -134,6 +142,16 @@ const SignUp = () => {
           <></>
         )}
         {/* Authentication Error Handling */}
+
+        {/* Authentication Success */}
+        {apiSuccess ? (
+          <div className="text-center bg-green-300 text-white px-5 mb-5 rounded-md animate__animated animate__fadeIn">
+            {apiSuccess}
+          </div>
+        ) : (
+          <></>
+        )}
+        {/* ----------------------------- */}
 
         <Formik
           initialValues={initialValues}
