@@ -9,6 +9,7 @@ import AuthenticateLayout from "../../Layout/AuthenticateLayout";
 import AccountCard from "../../components/FormContainer/components/AccountCard";
 import Input from "../../components/FormContainer/components/Input";
 import { baseUrl } from "../../constants/api";
+import Message from "../Message";
 
 type Values = {
   username: string;
@@ -37,6 +38,7 @@ const SignUp = () => {
       data: values,
     })
       .then(() => {
+        setApiError("")
         setApiSuccess("ثبت نام با موفقیت انجام شد");
         setTimeout(() => {
           navigate("/");
@@ -135,9 +137,7 @@ const SignUp = () => {
       <AccountCard title="ثبت‌نام در کوئرا تسک منیجر">
         {/* Authentication Error Handling */}
         {apiError ? (
-          <div className="text-center bg-red-700 text-white px-5 mb-5 rounded-md animate__animated animate__fadeIn">
-            {apiError}
-          </div>
+          <Message type="error" message={apiError} />
         ) : (
           <></>
         )}
@@ -145,9 +145,7 @@ const SignUp = () => {
 
         {/* Authentication Success */}
         {apiSuccess ? (
-          <div className="text-center bg-green-300 text-white px-5 mb-5 rounded-md animate__animated animate__fadeIn">
-            {apiSuccess}
-          </div>
+          <Message type="success" message={apiSuccess} />
         ) : (
           <></>
         )}

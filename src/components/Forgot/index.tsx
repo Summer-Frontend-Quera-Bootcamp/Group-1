@@ -7,6 +7,7 @@ import Input from "../../components/FormContainer/components/Input";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { baseUrl } from "../../constants/api";
+import Message from "../Message";
 
 type Values = {
   email: string;
@@ -55,12 +56,11 @@ const Forgot = () => {
       <AccountCard title="فراموشی رمز عبور">
         {/* Authentication Error Handling */}
         {apiError ? (
-          <div className="text-center bg-red-700 text-white px-5 mb-5 rounded-md animate__animated animate__fadeIn">
-            {apiError}
-          </div>
+          <Message type="error" message={apiError} />
         ) : (
           <></>
         )}
+        {/* Authentication Error Handling */}
 
         <Formik
           initialValues={initialValues}
