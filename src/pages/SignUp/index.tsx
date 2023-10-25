@@ -37,7 +37,7 @@ const SignUp = () => {
       data: values,
     })
       .then(() => {
-        setApiSuccess("ایمیل بازیابی برای شما ارسال شد");
+        setApiSuccess("ثبت نام با موفقیت انجام شد");
         setTimeout(() => {
           navigate("/");
         }, 3000);
