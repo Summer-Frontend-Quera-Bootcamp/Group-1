@@ -1,43 +1,65 @@
+import "animate.css";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SignInLayout from "../../Layout/AuthenticateLayout";
-import AccountCard from "../../components/FormContainer/AccountCard";
-import Input from "../../components/FormContainer/Input";
+import AccountCard from "../../components/FormContainer/components/AccountCard";
+import Input from "../../components/FormContainer/components/Input";
+import axios from "axios";
+import { baseUrl } from "../../constants/api";
+import { useState } from "react";
 
 type Values = {
-  email: string;
+  username: string;
   password: string;
 };
 
 const SignIn = () => {
+  const [apiError, setApiError] = useState("");
+  const [apiSuccess, setApiSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
   const initialValues = {
-    email: "",
+    username: "",
     password: "",
   };
 
-  const onSubmit = (values: Values) => {
-    const db = localStorage;
-    if (!db.getItem("email")) {
-      console.log("OOPS, You don't have any account here!");
-      alert("OOPS, You don't have any account here!");
-    } else if (
-      db.getItem("email") !== values.email ||
-      db.getItem("password") !== values.password
-    ) {
-      console.log("Email or Password is incorrect!");
-      alert("Email or Password is incorrect!");
-    } else {
-      alert("Hooray, Access granted!");
-    }
+  const onSubmit = async (values: Values) => {
+    setLoading(true);
+    await axios({
+      method: "post",
+      url: `${baseUrl}accounts/login/`,
+      data: values,
+    })
+      .then((response) => {
+        setApiSuccess("ورود موفقیت آمیز بود");
+        setApiError("");
+        const { user_id, access, refresh } = response.data;
+
+        localStorage.setItem("user_id", user_id);
+        localStorage.setItem("Access Token", access);
+        localStorage.setItem("Refresh Token", refresh);
+
+        setTimeout(() => {
+          // Replace with correct route
+          navigate("/test");
+        }, 3000);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error);
+
+          setLoading(false);
+          setApiError(error.response.data.detail);
+        }
+      });
   };
 
   const validationSchema = Yup.object({
-    email: Yup.string()
-      .email("لطفا ایمیل خود را به درستی وارد کنید!")
-      .required("ایمیل خود را وارد نکرده اید!"),
+    username: Yup.string().required("ایمیل خود را وارد نکرده اید!"),
     password: Yup.string()
-      .min(8, "رمز عبور باید حداقل 8 کاراکتر داشته باشد!")
+      .min(6, "رمز عبور باید حداقل 6 کاراکتر داشته باشد!")
       .required("رمز عبور خود را وارد نکرده اید!"),
   });
 
@@ -45,6 +67,26 @@ const SignIn = () => {
     <SignInLayout showSignup={true}>
       {/* ------------------------------Formik------------------------------ */}
       <AccountCard title="به کوئرا تسک منیجر خوش برگشتی :)">
+        {/* Authentication Error Handling */}
+        {apiError ? (
+          <div className="text-center bg-red-700 text-white px-5 mb-5 rounded-md animate__animated animate__fadeIn">
+            {apiError}
+          </div>
+        ) : (
+          <></>
+        )}
+        {/* Authentication Error Handling */}
+
+        {/* Authentication Success */}
+        {apiSuccess ? (
+          <div className="text-center bg-green-300 text-white px-5 mb-5 rounded-md animate__animated animate__fadeIn">
+            {apiSuccess}
+          </div>
+        ) : (
+          <></>
+        )}
+        {/* ----------------------------- */}
+
         <Formik
           initialValues={initialValues}
           onSubmit={onSubmit}
@@ -55,7 +97,11 @@ const SignIn = () => {
             action="post"
             className="flex justify-between flex-col gap-2 mb-6"
           >
-            <Input label="ایمیل" type="email" autoCompleteField="email" />
+            <Input
+              label="نام کاربری"
+              type="username"
+              autoCompleteField="email"
+            />
 
             <Input
               label="رمز عبور"
@@ -64,18 +110,26 @@ const SignIn = () => {
             />
 
             <Link
-              className="text-sm text-brand-primary mt-[-20px] mb-5"
+              className="text-sm w-fit mt-[-20px] mb-5 underline underline-offset-8"
               to={"/forgot"}
             >
               رمز عبور را فراموش کرده‌ای؟
             </Link>
 
-            <button
-              className="w-full flex justify-center items-center rounded-md h-10 bg-brand-primary text-white font-extrabold"
-              type="submit"
-            >
-              ورود
-            </button>
+            {loading ? (
+              <div className="bg-brand-primary flex flex-row gap-2 justify-center items-center rounded-md h-10">
+                <div className="w-4 h-4 rounded-full bg-white animate-bounce"></div>
+                <div className="w-4 h-4 rounded-full bg-white animate-bounce [animation-delay:-.3s]"></div>
+                <div className="w-4 h-4 rounded-full bg-white animate-bounce [animation-delay:-.5s]"></div>
+              </div>
+            ) : (
+              <button
+                className="w-full flex justify-center items-center rounded-md h-10 bg-brand-primary text-white font-extrabold"
+                type="submit"
+              >
+                ورود
+              </button>
+            )}
           </Form>
         </Formik>
 
@@ -87,7 +141,7 @@ const SignIn = () => {
         </div>
       </AccountCard>
       {/* ------------------------------Formik------------------------------ */}
-      </SignInLayout>
+    </SignInLayout>
   );
 };
 
