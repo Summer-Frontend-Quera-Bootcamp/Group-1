@@ -16,6 +16,7 @@ type Values = {
 
 const SignIn = () => {
   const [apiError, setApiError] = useState("");
+  const [apiSuccess, setApiSuccess] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -26,24 +27,33 @@ const SignIn = () => {
 
   const onSubmit = async (values: Values) => {
     setLoading(true);
-    const apiResponse = await axios({
+    await axios({
       method: "post",
       url: `${baseUrl}accounts/login/`,
       data: values,
-    }).catch((error) => {
-      if (error.response) {
-        setLoading(false);
-        setApiError(error.response.data.detail);
-      }
-    });
-    const { user_id, access, refresh } = await apiResponse.data;
+    })
+      .then((response) => {
+        setApiSuccess("ورود موفقیت آمیز بود");
+        setApiError("");
+        const { user_id, access, refresh } = response.data;
 
-    localStorage.setItem("user_id", user_id);
-    localStorage.setItem("Access Token", access);
-    localStorage.setItem("Refresh Token", refresh);
+        localStorage.setItem("user_id", user_id);
+        localStorage.setItem("Access Token", access);
+        localStorage.setItem("Refresh Token", refresh);
 
-    // Replace with correct route
-    navigate("/test");
+        setTimeout(() => {
+          // Replace with correct route
+          navigate("/test");
+        }, 3000);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error);
+
+          setLoading(false);
+          setApiError(error.response.data.detail);
+        }
+      });
   };
 
   const validationSchema = Yup.object({
@@ -66,6 +76,16 @@ const SignIn = () => {
           <></>
         )}
         {/* Authentication Error Handling */}
+
+        {/* Authentication Success */}
+        {apiSuccess ? (
+          <div className="text-center bg-green-300 text-white px-5 mb-5 rounded-md animate__animated animate__fadeIn">
+            {apiSuccess}
+          </div>
+        ) : (
+          <></>
+        )}
+        {/* ----------------------------- */}
 
         <Formik
           initialValues={initialValues}
