@@ -1,5 +1,5 @@
 import AuthenticateLayout from "../../../Layout/AuthenticateLayout";
-import AccountCard from "../../../components/FormContainer/components/AccountCard";
+import AccountCard from "../../FormContainer/components/AccountCard";
 
 const ResetLinkSent = () => {
   return (
