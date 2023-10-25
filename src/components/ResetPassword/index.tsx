@@ -7,6 +7,7 @@ import Input from "../../components/FormContainer/components/Input";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { baseUrl } from "../../constants/api";
+import Message from "../Message";
 
 type Values = {
   password: string;
@@ -39,6 +40,7 @@ const ResetPassword = () => {
     })
       .then(() => {
         setLoading(false);
+        setApiError("")
         setApiSuccess("رمز عبور با موفقیت تغییر یافت");
         setTimeout(() => {
           navigate("/");
@@ -67,19 +69,15 @@ const ResetPassword = () => {
       <AccountCard title="تغییر رمز عبور">
         {/* Authentication Error Handling */}
         {apiError ? (
-          <div className="text-center bg-red-700 text-white px-5 mb-5 rounded-md animate__animated animate__fadeIn">
-            {apiError}
-          </div>
+          <Message type="error" message={apiError} />
         ) : (
           <></>
         )}
-        {/* ----------------------------- */}
+        {/* Authentication Error Handling */}
 
         {/* Authentication Success */}
         {apiSuccess ? (
-          <div className="text-center bg-green-300 text-white px-5 mb-5 rounded-md animate__animated animate__fadeIn">
-            {apiSuccess}
-          </div>
+          <Message type="success" message={apiSuccess} />
         ) : (
           <></>
         )}
