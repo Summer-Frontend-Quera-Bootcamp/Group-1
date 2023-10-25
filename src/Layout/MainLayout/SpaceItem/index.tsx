@@ -4,30 +4,33 @@ const accordionData = [
   {
     tag_color: "bg-green-200",
     title: "درس مدیریت پروژه",
-    content: "",
+    contents:[]
   },
   {
-    tag_color: "#FAB005",
+    tag_color: "bg-yellow-200",
     title: "Section 2",
-    content: "چروژه ۱ ",
+    contents :[
+      "project1",
+      "project2"
+    ]
   },
   {
-    tag_color: "#FA5252",
+    tag_color: "bg-red-600",
     title: "Section 3",
-    content: "",
+    contents: [],
   },
   {
-    tag_color: "#228BE6",
+    tag_color: "bg-blue-500",
     title: "درس طراحی الگوریتم",
-    content: "",
+    contents: [],
   },
 ];
 export const SpaceItem = () => {
   return (
     <>
       <button className="accordion w-[100%] ">
-        {accordionData.map(({ title, content, tag_color }) => (
-          <SpaceList title={title} content={content} tag-color={tag_color} />
+        {accordionData.map(({ title, contents, tag_color }) => (
+          <SpaceList title={title} contents={contents} tag_color={tag_color} />
         ))}
       </button>
     </>
