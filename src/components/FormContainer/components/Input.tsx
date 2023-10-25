@@ -1,5 +1,5 @@
 import { ErrorMessage, Field } from "formik";
-import ErrorContainer from "../ErrorContainer";
+import ErrorContainer from "./ErrorContainer";
 
 interface InputProps {
   label: string;
@@ -10,9 +10,7 @@ interface InputProps {
 const Input: React.FC<InputProps> = ({
   label,
   type,
-  autoCompleteField,
-  // handleChange,
-  // handleBlur
+  autoCompleteField
 }): JSX.Element => {
   return (
     <>

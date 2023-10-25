@@ -4,55 +4,67 @@ import * as Yup from "yup";
 import AuthenticateLayout from "../../Layout/AuthenticateLayout";
 import AccountCard from "../../components/FormContainer/components/AccountCard";
 import Input from "../../components/FormContainer/components/Input";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { baseUrl } from "../../constants/api";
 
 type Values = {
-  email: string;
+  password: string;
+  password1: string;
 };
 
-const Forgot = () => {
+const ResetPassword = () => {
   const [apiError, setApiError] = useState("");
+  const [apiSuccess, setApiSuccess] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const initialValues = {
-    email: "",
+    password: "",
+    password1: "",
   };
 
   const onSubmit = async (values: Values) => {
+    // # Getting Token from url coming from user's Email
+    const accessToken = window.location.href.split("=")[1];
+
+    // # Create new object of Values
+    const updatedValues = { ...values, token: accessToken };
+
     setLoading(true);
     await axios({
-      method: "post",
-      url: `${baseUrl}accounts/reset-password/`,
-      data: values,
+      method: "patch",
+      url: `${baseUrl}accounts/reset-password/set-password/`,
+      data: updatedValues,
     })
       .then(() => {
         setLoading(false);
-        setApiError("");
-        navigate("/sent-link");
+        setApiSuccess("رمز عبور با موفقیت تغییر یافت");
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
       })
       .catch((error) => {
         setLoading(false);
-        if (error.response.data.email) {
-          setApiError("پست الکترونیکی صحبح وارد کنید.");
-        } else if (error.response.data.detail) {
-          setApiError("کاربری با این ایمیل وجود ندارد.");
-        }
+        setApiError(error.response.data.detail);
       });
   };
 
   const validationSchema = Yup.object({
-    email: Yup.string()
-      .email("لطفا ایمیل خود را به درستی وارد کنید!")
-      .required("ایمیل خود را وارد نکرده اید!"),
+    password: Yup.string()
+      .min(8, "رمز عبور باید حداقل 8 کاراکتر داشته باشد!")
+      .required("رمز عبور جدید خود را وارد نکرده اید!"),
+    password1: Yup.string()
+      .required("رمز عبور خود را تکرار نکرده اید")
+      .oneOf(
+        [Yup.ref("password")],
+        "رمز وارد شده با رمز انتخابی جدید یکسان نیست"
+      ),
   });
-
   return (
     <AuthenticateLayout showSignup={false}>
       {/* ------------------------------Formik------------------------------ */}
-      <AccountCard title="فراموشی رمز عبور">
+      <AccountCard title="تغییر رمز عبور">
         {/* Authentication Error Handling */}
         {apiError ? (
           <div className="text-center bg-red-700 text-white px-5 mb-5 rounded-md animate__animated animate__fadeIn">
@@ -61,6 +73,17 @@ const Forgot = () => {
         ) : (
           <></>
         )}
+        {/* ----------------------------- */}
+
+        {/* Authentication Success */}
+        {apiSuccess ? (
+          <div className="text-center bg-green-300 text-white px-5 mb-5 rounded-md animate__animated animate__fadeIn">
+            {apiSuccess}
+          </div>
+        ) : (
+          <></>
+        )}
+        {/* ----------------------------- */}
 
         <Formik
           initialValues={initialValues}
@@ -69,13 +92,19 @@ const Forgot = () => {
           validateOnMount
         >
           <Form
-            action="post"
+            action="patch"
             className="flex justify-between flex-col gap-2 mb-6"
           >
             <Input
-              label="ایمیل خود را وارد کنید."
-              type="email"
-              autoCompleteField="email"
+              label="رمز عبور جدید را وارد کنید"
+              type="password"
+              autoCompleteField="password"
+            />
+
+            <Input
+              label="تکرار رمز عبور"
+              type="password1"
+              autoCompleteField="none"
             />
 
             {loading ? (
@@ -89,15 +118,9 @@ const Forgot = () => {
                 className="w-full flex justify-center items-center rounded-md h-10 bg-brand-primary text-white font-extrabold"
                 type="submit"
               >
-                دریافت ایمیل بازیابی رمز عبور
+                اعمال تغییرات
               </button>
             )}
-            <Link
-              className="text-center font-extrabold text-brand-primary -mb-6"
-              to={"/"}
-            >
-              بازگشت
-            </Link>
           </Form>
         </Formik>
       </AccountCard>
@@ -106,4 +129,4 @@ const Forgot = () => {
   );
 };
 
-export default Forgot;
+export default ResetPassword;
