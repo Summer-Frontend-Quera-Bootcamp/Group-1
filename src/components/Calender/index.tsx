@@ -32,7 +32,7 @@ const Calendar = () => {
   };
 
   return (
-    <div>
+    <div className="px-5">
       <FullCalendar
         plugins={[dayGridPlugin]}
         initialView="dayGridMonth"
@@ -47,14 +47,13 @@ const Calendar = () => {
           prev: "arrow-left-sqaure-fill",
           next: "chevrons-right",
         }}
-        
         eventBackgroundColor="#208D8E"
         eventBorderColor="transparent"
-        height={"90vh"}
+        height={"80vh"}
       />
       <button
         onClick={openHandler}
-        className="z-10 mr-auto -translate-y-4 flex items-center gap-1 text-white bg-brand-primary px-3 py-2 rounded-md"
+        className="z-10 mr-auto ml-4 -translate-y-4 flex items-center gap-1 text-white bg-brand-primary px-3 py-2 rounded-md"
       >
         {Icons.addBox("#fff")}
         تسک جدید
