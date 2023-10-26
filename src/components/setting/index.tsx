@@ -1,6 +1,6 @@
 import Icons from "../../icons/Icons";
 
-const Profile = () => {
+const Setting = () => {
   return (
     <>
       <div className="fixed right-0 w-[340px] h-[100vh] border-l pl-6 bg-white flex flex-col ">
@@ -48,4 +48,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Setting;

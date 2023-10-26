@@ -1,11 +1,11 @@
 import React from 'react'
 import Input from '../FormContainer/Input'
 import { Formik, Form, ErrorMessage, Field, useFormik } from "formik";
-import Profile from '../setting';
+import Profile from '../Setting';
 
 const initialValues = {firstName: "",lastname: "", phone:""}
 
-const PersonalForm = () => {
+const PersonalInfo = () => {
 
   return (
     <>
@@ -48,5 +48,5 @@ function ProfilePic(){
   return <div className="personal-info roun">MN</div>
 }
 
-export default PersonalForm
+export default PersonalInfo
 

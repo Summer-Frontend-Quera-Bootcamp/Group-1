@@ -2,8 +2,8 @@
 import Input from '../FormContainer/Input'
 import { Formik, Form, ErrorMessage, Field, useFormik } from "formik";
 import * as Yup from "yup"
-import Profile from '../setting';
-const FormIn = () => {
+import Profile from '../Setting';
+const AccountInformation = () => {
 const initialValues = {email: "",username: "", password:"",password1:"", password2:""}
 
 const validationSchema = Yup.object({
@@ -46,6 +46,6 @@ function Button (){
     return <button type='submit' className='flex  text-center items-center justify-start  rounded-md bg-teal-600 text-white w-64 px-12 py-2 font-extrabold'>ثبت تغییرات</button>
 }
 
-export default FormIn
+export default AccountInformation
 
 
