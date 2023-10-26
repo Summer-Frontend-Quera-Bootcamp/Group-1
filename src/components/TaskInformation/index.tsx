@@ -2,9 +2,9 @@ import Icons from "../../icons/Icons";
 import pic1 from "../../assets/img/Frame 32.svg";
 export const TaskInformation = () => {
   return (
-    <div className="w-[750px] h-[596px] rounded-[20px]">
+    <div className="w-[100%] h-[auto] rounded-[20px]">
       
-      <div className="flex items-center justify-between px-9 mt-20">
+      <div className="flex items-center justify-between px-9 border-solid border-[#F4F4F4] border-b-[1px] pb-[50px]">
         <div className="flex items-center gap-6">
           <div className="flex items-center">
             <button className="bg-[#F84747] text-white w-[111px] pr-[8px] pl-[4px]">

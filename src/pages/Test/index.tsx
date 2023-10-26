@@ -1,5 +1,9 @@
+import TaskInformationContainer from "../../components/TaskInformationContainer";
+
 const Test = () => {
-    return <div>Test</div>;
+    return <div>
+        <TaskInformationContainer />
+    </div>;
 };
 
 
