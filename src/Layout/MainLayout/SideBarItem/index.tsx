@@ -1,18 +1,15 @@
-import { SpaceList } from "../SpaceList";
+import { SideBarList } from "../SideBarList";
 
 const accordionData = [
   {
     tag_color: "bg-green-200",
     title: "درس مدیریت پروژه",
-    contents:[]
+    contents: [],
   },
   {
     tag_color: "bg-yellow-200",
     title: "Section 2",
-    contents :[
-      "project1",
-      "project2"
-    ]
+    contents: ["project1", "project2"],
   },
   {
     tag_color: "bg-red-600",
@@ -25,12 +22,16 @@ const accordionData = [
     contents: [],
   },
 ];
-export const SpaceItem = () => {
+export const SideBarItem = () => {
   return (
     <>
       <button className="accordion w-[100%] ">
         {accordionData.map(({ title, contents, tag_color }) => (
-          <SpaceList title={title} contents={contents} tag_color={tag_color} />
+          <SideBarList
+            title={title}
+            contents={contents}
+            tag_color={tag_color}
+          />
         ))}
       </button>
     </>

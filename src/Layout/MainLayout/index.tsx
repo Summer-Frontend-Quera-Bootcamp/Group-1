@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
 import Icons from "../../icons/Icons";
-import { SpaceItem } from "./SpaceItem";
-import { SpaceList } from "./SpaceList";
+import { SideBarItem } from "./SideBarItem";
+import { SideBarList } from "./SideBarList";
+import { BgEvent } from "@fullcalendar/core/internal.js";
 
 export const MainLayout = () => {
   return (
@@ -20,12 +22,12 @@ export const MainLayout = () => {
                 <div className="flex ">{Icons.chevronDown()}</div>
               </div>
               <div className="bg-gray-100 w-[100%] h-[40px] mt-[16px] ml-[16px] rounded py-[8px] pr-[15px] text-[12px] font-normal flex items-center justify-start text-gray-200 ">
-              {Icons.search()}جستجو کنید
+                {Icons.search()}جستجو کنید
               </div>
-              <button className="bg-gray-200 w-[100%] h-[32px] mt-[16px] ml-[16px] p-[10px] text-[12px] font-normal rounded flex justify-center items-center ">
+              <Link to={""} className="bg-gray-200 w-[100%] h-[32px] mt-[16px] ml-[16px] p-[10px] text-[12px] font-normal rounded flex justify-center items-center ">
                 ساختن اسپیس جدید
-              </button>
-              <SpaceItem />
+              </Link>
+              <SideBarItem />
             </div>
           </div>
           <div className="w-[276px] h-[89px] mx-[32px]  ">
@@ -38,10 +40,10 @@ export const MainLayout = () => {
               </p>
             </div>
             <div className="flex justify-between items-center w-[100%] h-[36px] mt-[16px] ">
-              <button className="flex h-[28px] ">
+              <Link to={""} className="flex h-[28px] ">
                 <div className="h-[28px]">{Icons.exit()}</div>
                 <div>خروج</div>
-              </button>
+              </Link>
               <div className="overflow-hidden flex items-center ">
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input className="sr-only peer" value="" type="checkbox" />
@@ -52,22 +54,23 @@ export const MainLayout = () => {
           </div>
         </div>
         <div id="main" className=" w-[100%] h-[100vh]  ">
-          <nav className="flex items-center justify-between  w-[1034px] h-[64px] py-[16px]  mt-[41px] ml-[50px] mr-[16px] border-b  ">
+          <nav className="flex items-center justify-between  w-[1034px] h-[64px] py-[16px]  mt-[41px] ml-[50px] mr-[16px] border-b   ">
             <ul className="flex w-[510px]  ">
-              <li className="flex border-l px-4">پروژه اول </li>
-              <li className="flex border-l px-4">
+              <li className="flex border-l px-4 font-extrabold text-xl">پروژه اول </li>
+              <Link to={""} className="flex border-l px-4 text-base focus:font-bold focus:text-brand-primary  ">
                 {Icons.listView()} نمایش لیستی{" "}
-              </li>
-              <li className="flex border-l px-4">
+              </Link>
+              <Link to={""} className="flex border-l px-4 text-base focus:font-bold focus:text-brand-primary">
                 {Icons.boardView()} نمایش ستونی{" "}
-              </li>
-              <li className="flex border-l px-4">
-                {" "}
+              </Link>
+              <Link to={""} className="flex border-l px-4 text-base focus:font-bold focus:text-brand-primary">
                 {Icons.calendarView()}تقویم{" "}
-              </li>
+              </Link>
             </ul>
             <ul className="flex  w-[118px] h-[28px]  ">
+              <Link to={""} className="flex">
               {Icons.share()}اشتراک گذاری{" "}
+              </Link>
             </ul>
           </nav>
           <div></div>

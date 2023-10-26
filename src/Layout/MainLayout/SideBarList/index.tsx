@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-export const SpaceList = ({ title, contents, tag_color }) => {
+export const SideBarList = ({ title, contents, tag_color }) => {
   const [isActive, setIsActive] = useState(false);
 
   return (
@@ -20,9 +21,11 @@ export const SpaceList = ({ title, contents, tag_color }) => {
           {contents.length ? (
             contents.map((content) => <p className="block my-4">{content}</p>)
           ) : (
-            <button className="w-[266px] h-[28px]  my-4 border-2 border-solid border-brand-primary  rounded-lg text-brand-primary ">
+            <Link to={""}>
+            <button className="w-[266px] h-[28px] my-4 border-2 border-solid border-brand-primary  rounded-lg text-brand-primary ">
               ساختن پروژه جدید
             </button>
+            </Link>
           )}
         </div>
       ) : null}
