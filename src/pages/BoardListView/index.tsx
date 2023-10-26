@@ -4,7 +4,6 @@ import pic2 from "../../assets/img/Frame 78.svg";
 import { BoardHeader } from "../../components/BoardHeader";
 import Icons from "../../icons/Icons";
 const BoardListView = () => {
-  // const [rotated, setRotated] = useState(false);
 
   const [lists, setListsOpen] = useState({
     parent: false,
@@ -298,6 +297,5 @@ const BoardListView = () => {
     </div>
   );
 };
-console.log("Hi");
 
 export default BoardListView;
