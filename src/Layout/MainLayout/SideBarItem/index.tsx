@@ -29,6 +29,7 @@ export const SideBarItem = () => {
   const [arrayOfWorkspaces, setArrayOfWorkspaces] = useState([]);
   const [arrayOfContents, setArrayOfContents] = useState([])
 
+  
   const accessToken =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk4MzYwMDIwLCJpYXQiOjE2OTgzMzg0MjAsImp0aSI6ImJlYjM3YTU1NzIzYzQ1ZGE5YTc2YzBlMWU2MDU3NDA4IiwidXNlcl9pZCI6MjA2fQ.nuWjEnaTQ00XQ8OaX9_tqZmxUamMevCO8ugEME22xTM";
   useEffect(() => {
