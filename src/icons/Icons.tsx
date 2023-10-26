@@ -1093,20 +1093,24 @@ const Icons = {
 				stroke-linecap='round'
 				stroke-linejoin='round'
 			/>
-		</svg>
-	),
-	menu: (color = '#323232') => (
-		<svg
-			xmlns='http://www.w3.org/2000/svg'
-			width='4'
-			height='4'
-			viewBox='0 0 4 4'
-			fill='none'
-		>
 			<path
-				d='M2.41718 1.99997C2.41718 2.23018 2.23055 2.41681 2.00034 2.41681C1.77012 2.41681 1.5835 2.23018 1.5835 1.99997C1.5835 1.76976 1.77012 1.58313 2.00034 1.58313C2.23055 1.58313 2.41718 1.76976 2.41718 1.99997'
+				d='M23.5787 17.4754V5.19604'
 				stroke={color}
-				stroke-width='1.25'
+				stroke-width='2.3897'
+				stroke-linecap='round'
+				stroke-linejoin='round'
+			/>
+			<path
+				d='M6.42163 17.451C6.42163 17.451 7.49393 16.5601 10.7108 16.5601C13.9277 16.5601 16.0723 18.6765 19.2892 18.6765C22.5061 18.6765 23.5784 17.4792 23.5784 17.4792'
+				stroke={color}
+				stroke-width='2.3897'
+				stroke-linecap='round'
+				stroke-linejoin='round'
+			/>
+			<path
+				d='M6.42163 5.11286C6.42163 5.11286 7.49393 3.9707 10.7108 3.9707C13.9277 3.9707 16.0723 6.08712 19.2892 6.08712C22.5061 6.08712 23.5784 5.19619 23.5784 5.19619'
+				stroke={color}
+				stroke-width='2.3897'
 				stroke-linecap='round'
 				stroke-linejoin='round'
 			/>

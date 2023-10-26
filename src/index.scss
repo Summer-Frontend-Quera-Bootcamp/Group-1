@@ -34,6 +34,7 @@ body {
   box-shadow: 0px 50px 100px -20px rgba(50, 50, 93, 0.25),
     0px 30px 60px -30px rgba(0, 0, 0, 0.3);
 }
+
 .personal-info{
   display: flex;
 padding: 25.714px 22.857px 20px 22.857px;
@@ -66,4 +67,12 @@ border: 1px solid var(--brand-primary, #208D8E);
 justify-content: flex-end;
 align-items: center;
 gap: var(--S, 16px);
+}
+
+.new-task-box-shadow {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.absolute-center {
+  transform: translate(-50%, -50%);
 }
