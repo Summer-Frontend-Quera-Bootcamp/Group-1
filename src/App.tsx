@@ -18,8 +18,14 @@ function App() {
           <Route path="/forgot" element={<ForgotPage />} />
           <Route path="sent-link" element={<ResetLinkSentPage />} />
           <Route path="reset-password" element={<ResetPasswordPage />} />
-          <Route path="/test" element={<Test />} />
-          <Route path="/board-list-view" element={<Board />} />
+          <Route path="/test" /*element={<Test />}*/ />
+          <Route path="/showlist" /*element={<Test />}*/ />
+          <Route path="/showcol" /*element={<Test />}*/ />
+          <Route path="/calendar" /*element={<Test />}*/ />
+          <Route path="/accountinfo" /*element={<Test />}*/ />
+          <Route path="/setting" /*element={<Test />}*/ />
+          <Route path="/personalinfo" /*element={<Test />}*/ />
+          <Route path="/board-list-view" /*element={<Test />}*/ />
         </Routes>
       </BrowserRouter>
     </>
