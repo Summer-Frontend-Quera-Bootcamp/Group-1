@@ -1,10 +1,9 @@
-import Filter from "../../components/Filter";
+
+import { MainLayout } from "../../Layout/MainLayout";
+
 
 const Test = () => {
-    return <div>
-        <Filter />
-    </div>;
+  return <div>Test</div>;
 };
-
 
 export default Test;
