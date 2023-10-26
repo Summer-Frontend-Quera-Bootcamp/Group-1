@@ -34,3 +34,36 @@ body {
   box-shadow: 0px 50px 100px -20px rgba(50, 50, 93, 0.25),
     0px 30px 60px -30px rgba(0, 0, 0, 0.3);
 }
+.personal-info{
+  display: flex;
+padding: 25.714px 22.857px 20px 22.857px;
+justify-content: center;
+align-items: center;
+border-radius: 285.714px;
+background: var(--yellow-secondary, #FFF3BF);
+}
+.personal-info-div{
+display: flex;
+justify-content: flex-end;
+align-items: center;
+gap: var(--S, 16px);
+}
+.personal-info-text{
+  color: var(--Black, #1E1E1E);
+text-align: right;
+font-size: 31px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+.button-border{
+border-radius: var(--XS, 8px);
+border: 1px solid var(--brand-primary, #208D8E);
+}
+
+.title-info{
+  display: flex;
+justify-content: flex-end;
+align-items: center;
+gap: var(--S, 16px);
+}

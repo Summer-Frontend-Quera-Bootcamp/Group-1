@@ -1,7 +1,8 @@
-import Icons from "../../assets/Icons/Icons";
+import Icons from "../../icons/Icons";
+
 const Profile = () => {
   return (
-    
+    <>
       <div className="fixed right-0 w-[340px] h-[100vh] border-l pl-6 bg-white flex flex-col ">
         <div className="absolute left-[1/2] -ml-0.5 border-solid h-screen bg-[#AAAAAA]"></div>
         <div className="box-content float-right text-right font-black text-3xl bg-clip-text bg-gradient-to-r from-[#118C80] to-[#4AB7D8] mr-[50px] mt-[40px]">
@@ -42,6 +43,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      </>
     
   );
 };
