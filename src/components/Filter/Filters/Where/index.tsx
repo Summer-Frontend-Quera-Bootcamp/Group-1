@@ -41,12 +41,12 @@ const Where: React.FC<IWhere> = ({showMethod, showValue, setAnswer, setElement})
     const [data, setData] = useState<IData[]>(mainData);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const searchTerm = event.target.value.trim();
-        if (!searchTerm) {
+        const searchWhere = event.target.value.trim();
+        if (!searchWhere) {
             setData(mainData);
             return;
         }
-        const filteredData = mainData.filter((d: IData) => d.txt.trim().includes(searchTerm));
+        const filteredData = mainData.filter((d: IData) => d.txt.trim().includes(searchWhere));
         setData(filteredData);
     };
 

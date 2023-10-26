@@ -1,6 +1,8 @@
-import {IsOrNot, Tag, Where} from "../Scripts";
 import {JSX, useState} from "react";
 import Icons from "../../../icons/Icons.tsx";
+import IsOrNot from "./IsOrNot/index.tsx";
+import Where from "./Where/index.tsx";
+import Tag from "./Tag/index.tsx";
 
 interface IFilters {
     showMethodFilters: (newValue: boolean) => void;

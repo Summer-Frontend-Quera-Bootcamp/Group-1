@@ -42,12 +42,12 @@ const mainData: IData[] = [
 const Tag: React.FC<ITag> = ({showMethod, showValue, setText, setAnswer}): JSX.Element => {
     const [data, setData] = useState<IData[]>(mainData);
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const searchTerm = event.target.value.trim();
-        if (!searchTerm) {
+        const searchTag = event.target.value.trim();
+        if (!searchTag) {
             setData(mainData);
             return;
         }
-        const filteredData = mainData.filter((d: IData) => d.txt.trim().includes(searchTerm));
+        const filteredData = mainData.filter((d: IData) => d.txt.trim().includes(searchTag));
         setData(filteredData);
     };
 

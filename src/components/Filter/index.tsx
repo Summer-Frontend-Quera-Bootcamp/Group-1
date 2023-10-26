@@ -1,6 +1,6 @@
 import {JSX, useState} from "react";
-import {Filters} from "./Scripts"
 import Icons from "./../../icons/Icons.tsx"
+import Filters from "./Filters/index.tsx";
 
 interface IFiltering {
     where: string;
