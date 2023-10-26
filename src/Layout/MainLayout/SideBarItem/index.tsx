@@ -3,28 +3,6 @@ import { SideBarList } from "../SideBarList";
 import axios from "axios";
 import { baseUrl } from "../../../constants/api";
 
-// const accordionData = [
-//   {
-//     tag_color: "bg-green-200",
-//     title: "درس مدیریت پروژه",
-//     contents: [],
-//   },
-//   {
-//     tag_color: "bg-yellow-200",
-//     title: "Section 2",
-//     contents: ["project1", "project2"],
-//   },
-//   {
-//     tag_color: "bg-red-600",
-//     title: "Section 3",
-//     contents: [],
-//   },
-//   {
-//     tag_color: "bg-blue-500",
-//     title: "درس طراحی الگوریتم",
-//     contents: [],
-//   },
-// ];
 export const SideBarItem = () => {
   const [arrayOfWorkspaces, setArrayOfWorkspaces] = useState([]);
   const [arrayOfContents, setArrayOfContents] = useState([])
@@ -38,7 +16,6 @@ export const SideBarItem = () => {
       url: `${baseUrl}workspaces/`,
       headers: { Authorization: `Bearer ${accessToken}` },
     }).then((res) => {
-      // console.log(res);
       setArrayOfWorkspaces(res.data);
     });
   }, []);
