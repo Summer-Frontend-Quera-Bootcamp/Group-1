@@ -1,22 +1,26 @@
 import { Link } from "react-router-dom";
 import Icons from "../../icons/Icons";
 import { SideBarItem } from "./SideBarItem";
-import { SideBarList } from "./SideBarList";
-import { BgEvent } from "@fullcalendar/core/internal.js";
 
-export const MainLayout = () => {
+interface IMainLayout {
+  children: JSX.Element | JSX.Element[];
+}
+
+export const MainLayout: React.FC<IMainLayout> = ({
+  children,
+}): JSX.Element => {
   return (
     <>
       <div className="flex">
         <div
           id="sidebar"
-          className="w-[340px] h-[100vh]  border-l-[1px] border-solid "
+          className="w-[20%] h-[100vh]  border-l-[1px] border-solid "
         >
-          <div className="pr-[50px] pt-[40px]  ">
-            <p className=" linear-gradient-heading text-3xl text-[32px] font-extrabold">
+          <div className="flex flex-col items-center pt-7">
+            <p className=" linear-gradient-heading text-2xl font-extrabold">
               کوئرا تسک منیجر
             </p>
-            <div className="w-[274px] h-[496px]  mt-[27px] ">
+            <div className="w-[274px] h-[496px] mt-[27px] ">
               <div className="w-[100%] h-[28px] bg-white flex justify-between ">
                 <p className=" font-extrabold text-[16px] ">ورک‌اسپیس‌ها</p>
                 <div className="flex ">{Icons.chevronDown()}</div>
@@ -24,7 +28,10 @@ export const MainLayout = () => {
               <div className="bg-gray-100 w-[100%] h-[40px] mt-[16px] ml-[16px] rounded py-[8px] pr-[15px] text-[12px] font-normal flex items-center justify-start text-gray-200 ">
                 {Icons.search()}جستجو کنید
               </div>
-              <Link to={""} className="bg-gray-200 w-[100%] h-[32px] mt-[16px] ml-[16px] p-[10px] text-[12px] font-normal rounded flex justify-center items-center ">
+              <Link
+                to={""}
+                className="bg-gray-200 w-[100%] h-[32px] mt-[16px] ml-[16px] p-[10px] text-[12px] font-normal rounded flex justify-center items-center "
+              >
                 ساختن اسپیس جدید
               </Link>
               <SideBarItem />
@@ -53,27 +60,38 @@ export const MainLayout = () => {
             </div>
           </div>
         </div>
-        <div id="main" className=" w-[100%] h-[100vh]  ">
-          <nav className="flex items-center justify-between  w-[1034px] h-[64px] py-[16px]  mt-[41px] ml-[50px] mr-[16px] border-b   ">
-            <ul className="flex w-[510px]  ">
-              <li className="flex border-l px-4 font-extrabold text-xl">پروژه اول </li>
-              <Link to={""} className="flex border-l px-4 text-base focus:font-bold focus:text-brand-primary  ">
+        <div id="main" className="w-full h-screen">
+          <nav className="flex items-center py-4 mt-4 mx-5 border-b">
+            <ul className="flex">
+              <li className="flex gap-3 border-l px-4 font-extrabold text-xl">
+                پروژه اول{" "}
+              </li>
+              <Link
+                to={""}
+                className="flex gap-3 border-l px-4 text-base focus:font-bold focus:text-brand-primary"
+              >
                 {Icons.listView()} نمایش لیستی{" "}
               </Link>
-              <Link to={""} className="flex border-l px-4 text-base focus:font-bold focus:text-brand-primary">
+              <Link
+                to={""}
+                className="flex gap-3 border-l px-4 text-base focus:font-bold focus:text-brand-primary"
+              >
                 {Icons.boardView()} نمایش ستونی{" "}
               </Link>
-              <Link to={""} className="flex border-l px-4 text-base focus:font-bold focus:text-brand-primary">
+              <Link
+                to={""}
+                className="flex gap-3 border-l px-4 text-base focus:font-bold focus:text-brand-primary"
+              >
                 {Icons.calendarView()}تقویم{" "}
               </Link>
             </ul>
-            <ul className="flex  w-[118px] h-[28px]  ">
+            <ul className="mr-auto">
               <Link to={""} className="flex">
-              {Icons.share()}اشتراک گذاری{" "}
+                {Icons.share()}اشتراک گذاری{" "}
               </Link>
             </ul>
           </nav>
-          <div></div>
+          <div>{children}</div>
         </div>
       </div>
     </>
