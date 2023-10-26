@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export const SideBarList = ({ title, contents, tag_color }) => {
+export const SideBarList = ({ name, contents, color }) => {
   const [isActive, setIsActive] = useState(false);
 
   return (
@@ -11,8 +11,8 @@ export const SideBarList = ({ title, contents, tag_color }) => {
         onClick={() => setIsActive(!isActive)}
       >
         <div className="flex">
-          <div className={`flex  w-[20px] h-[20px] ml-4 ${tag_color} rounded`}></div>
-          <div className="flex ">{title}</div>
+          <div className={`flex  w-[20px] h-[20px] ml-4 ${color} rounded`}></div>
+          <div className="flex ">{name}</div>
         </div>
         <div className="flex">...</div>
       </div>
