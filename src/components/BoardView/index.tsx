@@ -1,6 +1,7 @@
 import Icons from "../../icons/Icons";
 import { BoardHeader } from "../BoardHeader";
-import {JSX} from "react";
+import {JSX, useState} from "react";
+import NewTask from "../NewTask";
 
 interface MyComponentProps {
   message: string;
@@ -22,6 +23,12 @@ const Board = () => {
 };
 
 function Column() {
+  const [openNewTask, setOpenNewTask] = useState<boolean>(false);
+
+  const handleClick = () => {
+    setOpenNewTask(true);
+  }
+
   return (
     <div className="flex flex-col">
       <BoardHeader />
@@ -30,8 +37,8 @@ function Column() {
           <CardLittle count={2} style="2px solid #FD7E14" message="Open" />
           <Card image="" />
           <Card image="https://www.figma.com/file/wmiqD5uj1ECZwjDA6W4ls9/Front-End-Bootcamp-UI-Design-v2?type=design&node-id=2-1093&mode=dev" />
-          <button className="flex p-[8px] px-3 py-2  flex-col justify-center items-center gap-10 self-stretch rounded-[8px] border-2 border-brand-primary my-6 mx-auto w-full">
-            <div className="flex text-xs text-teal-500 font-extrabold capitalize justify-center items-center">
+          <button onClick={handleClick} className="flex p-[8px] px-3 py-2  flex-col justify-center items-center gap-10 self-stretch rounded-[8px] border-2 border-brand-primary my-6 mx-auto w-full">
+            <div className="cursor-pointer flex text-xs text-teal-500 font-extrabold capitalize justify-center items-center">
               <span className="flex justify-center items-center h-4 w-4">
                 {Icons.addBox("#208D8E")}
               </span>{" "}
@@ -56,6 +63,15 @@ function Column() {
           <Card image="" />
         </div>
       </div>
+      {
+        openNewTask && (
+            <div
+                className="bg-black-primary/40 backdrop-blur-sm flex flex-row items-center justify-center fixed top-0 left-0 h-screen w-screen overflow-hidden"
+            >
+              <NewTask setNewTask={setOpenNewTask} />
+            </div>
+          )
+      }
     </div>
   );
 }

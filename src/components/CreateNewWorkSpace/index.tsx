@@ -6,12 +6,11 @@ import axios from "axios";
 import { baseUrl } from "../../constants/api";
 import Message from "../Message";
 interface ICreateNewWorkSpace {
-  onColorReceived: (data: string) => void;
+  setCreateNewWorkSpace: (value: boolean) => void,
 }
 
-const CreateNewWorkSpace: React.FC<ICreateNewWorkSpace> = (
-  onColorReceived
-): JSX.Element => {
+const CreateNewWorkSpace: React.FC<ICreateNewWorkSpace> = ({setCreateNewWorkSpace}): JSX.Element => {
+  const [animation, setAnimation] = useState<string>("animate__animated animate__fadeInDownBig")
   const [inputValue, setInputValue] = useState("");
   const [color, setColor] = useState("bg-gray-400");
   const [result, setResult] = useState("");
@@ -25,8 +24,13 @@ const CreateNewWorkSpace: React.FC<ICreateNewWorkSpace> = (
     setInputValue(event.target.value);
   };
 
-  const handleButtonClose = () => {
-    setClose(true);
+  const handleButtonClose = async () => {
+    setAnimation("animate__animated animate__fadeOutUpBig")
+    await setTimeout(() => {
+      setClose(true);
+      setCreateNewWorkSpace(false);
+    },200)
+
   };
 
   const handleButtonClick = () => {
@@ -85,7 +89,7 @@ const CreateNewWorkSpace: React.FC<ICreateNewWorkSpace> = (
   };
 
   return !close ? (
-    <div className="bg-white shadow-md rounded-[8px] px-8 pt-6 pb-8 mb-4 w-[500px] flex flex-col gap-[40px]">
+    <div className={`${animation} bg-white shadow-md rounded-[8px] px-8 pt-6 pb-8 mb-4 w-[500px] flex flex-col gap-[40px]`}>
       <div className="flex items-center mb-7">
         <div className="cursor-pointer" onClick={handleButtonClose}>
           {Icons.close()}

@@ -1,10 +1,24 @@
 import Icons from '../../icons/Icons';
+import {JSX, useState} from "react";
 
-const ShareProject = () => {
-	return (
+interface IShareProject {
+	setShareProject: (value: boolean) => void,
+	showShareProject: boolean,
+}
+
+const ShareProject: React.FC<IShareProject> = ({setShareProject, showShareProject}): JSX.Element => {
+	const [animation, setAnimation] = useState<string>("animate__animated animate__fadeInDownBig")
+
+	const handleClose = async () => {
+		setAnimation("animate__animated animate__fadeOutUpBig")
+		await setTimeout(() => {
+			setShareProject(false)
+		},200)
+	}
+	return showShareProject ? (
 		<div
 			dir='ltr'
-			className='w-[470px] h-[300px] p-5 bg-white rounded-xl flex-col justify-start items-center gap-10 inline-flex'
+			className={`${animation} w-[470px] h-[300px] p-5 bg-white rounded-xl flex-col justify-start items-center gap-10 inline-flex`}
 		>
 			<div className='w-[430px] justify-between items-center inline-flex'>
 				<div className='w-6 h-6 opacity-0 justify-center items-center flex'>
@@ -14,7 +28,7 @@ const ShareProject = () => {
 					به اشتراک‌گذاری پروژه‌
 				</div>
 				<div className='w-6 h-6 justify-center items-center flex'>
-					<div className='w-6 h-6 relative'>{Icons.close()}</div>
+					<div onClick={() => handleClose()} className='w-6 h-6 relative cursor-pointer'>{Icons.close()}</div>
 				</div>
 			</div>
 			<div className='self-stretch h-[236px] flex-col justify-start items-start gap-6 flex'>
@@ -101,7 +115,7 @@ const ShareProject = () => {
 				</div>
 			</div>
 		</div>
-	);
+	) : (<></>);
 };
 
 export default ShareProject;

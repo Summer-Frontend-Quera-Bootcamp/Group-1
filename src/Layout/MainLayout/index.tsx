@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import Icons from "../../icons/Icons";
 import { SideBarItem } from "./SideBarItem";
+import {useState} from "react";
+import ShareProject from "../../components/ShareProject";
+import Filter from "../../components/Filter";
+import CreateNewWorkSpace from "../../components/CreateNewWorkSpace";
 
 interface IMainLayout {
   children: JSX.Element | JSX.Element[];
@@ -9,6 +13,14 @@ interface IMainLayout {
 export const MainLayout: React.FC<IMainLayout> = ({
   children,
 }): JSX.Element => {
+  const [openWorkspaceMaker, setOpenWorkspaceMaker] = useState<boolean>(false);
+  const [openShareProject, setOpenShareProject] = useState<boolean>(false);
+  const handleClick = () => {
+    setOpenShareProject(true);
+  }
+  const handleCreateWorkspace = () => {
+    setOpenWorkspaceMaker(true);
+  }
   return (
     <>
       <div className="flex">
@@ -28,12 +40,12 @@ export const MainLayout: React.FC<IMainLayout> = ({
               <div className="bg-gray-100 w-[100%] h-[40px] mt-[16px] ml-[16px] rounded py-[8px] pr-[15px] text-[12px] font-normal flex items-center justify-start text-gray-200 ">
                 {Icons.search()}جستجو کنید
               </div>
-              <Link
-                to={""}
-                className="bg-gray-200 w-[100%] h-[32px] mt-[16px] ml-[16px] p-[10px] text-[12px] font-normal rounded flex justify-center items-center "
+              <div
+                  onClick={handleCreateWorkspace}
+                className="cursor-pointer bg-gray-200 w-[100%] h-[32px] mt-[16px] ml-[16px] p-[10px] text-[12px] font-normal rounded flex justify-center items-center "
               >
                 ساختن اسپیس جدید
-              </Link>
+              </div>
               <SideBarItem />
             </div>
           </div>
@@ -86,14 +98,32 @@ export const MainLayout: React.FC<IMainLayout> = ({
               </Link>
             </ul>
             <ul className="mr-auto">
-              <Link to={""} className="flex">
-                {Icons.share()}اشتراک گذاری{" "}
-              </Link>
+              <div onClick={() => handleClick()} className="flex cursor-pointer">
+                {
+                  Icons.share()
+                }
+                اشتراک گذاری
+              </div>
             </ul>
           </nav>
           <div>{children}</div>
         </div>
       </div>
+      {
+        openShareProject && (
+            <div className="bg-black-primary/40 backdrop-blur-sm flex flex-row items-center justify-center fixed top-0 left-0 h-screen w-screen overflow-hidden">
+              <ShareProject setShareProject={setOpenShareProject} showShareProject={openShareProject} />
+            </div>
+          )
+      }
+      {
+          openWorkspaceMaker && (
+              <div
+                  className="bg-black-primary/40 backdrop-blur-sm flex flex-row items-center justify-center fixed top-0 left-0 h-screen w-screen overflow-hidden">
+                <CreateNewWorkSpace setCreateNewWorkSpace={setOpenWorkspaceMaker} />
+              </div>
+          )
+      }
     </>
   );
 };
