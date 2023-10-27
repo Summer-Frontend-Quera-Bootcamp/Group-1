@@ -43,8 +43,7 @@ const SignIn = () => {
         localStorage.setItem("Refresh Token", refresh);
 
         setTimeout(() => {
-          // Replace with correct route
-          navigate("/test");
+          navigate("/showcol");
         }, 3000);
       })
       .catch((error) => {
@@ -69,19 +68,11 @@ const SignIn = () => {
       {/* ------------------------------Formik------------------------------ */}
       <AccountCard title="به کوئرا تسک منیجر خوش برگشتی :)">
         {/* Authentication Error Handling */}
-        {apiError ? (
-          <Message type="error" message={apiError} />
-        ) : (
-          <></>
-        )}
+        {apiError ? <Message type="error" message={apiError} /> : <></>}
         {/* Authentication Error Handling */}
 
         {/* Authentication Success */}
-        {apiSuccess ? (
-          <Message type="success" message={apiSuccess} />
-        ) : (
-          <></>
-        )}
+        {apiSuccess ? <Message type="success" message={apiSuccess} /> : <></>}
         {/* ----------------------------- */}
 
         <Formik

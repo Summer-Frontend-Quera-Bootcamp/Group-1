@@ -1,7 +1,7 @@
-import PersonalInfo from '../../components/personalinfo';
+import PersonalInfo from "../../components/PersonalInfo";
 
 const PersonalInfoPage = () => {
-	return <PersonalInfo />;
+  return <PersonalInfo />;
 };
 
 export default PersonalInfoPage;
