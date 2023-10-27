@@ -1,5 +1,4 @@
-
-import Input from '../FormContainer/Input'
+import Input from "../FormContainer/components/Input.tsx";
 import { Formik, Form, ErrorMessage, Field, useFormik } from "formik";
 import * as Yup from "yup"
 import Profile from '../Setting';
@@ -25,11 +24,10 @@ const validationSchema = Yup.object({
   return (
     <div>
       <Profile/>
-      
+
     <Formik initialValues={initialValues} onSubmit={()=>{}} validationSchema={validationSchema} validateOnMount ><Form action="patch" className='flex flex-col items-center mb-2.5'>
       
           <h1 className='text-right mb-2'>اطلاعات حساب</h1>
-          
       <div className='flex flex-col mb-2.5'><Input type='email' label='ایمیل' autoCompleteField='email' /></div>
       <div className='flex flex-col mb-2.5'><Input type='text' label='نام کاربری' autoCompleteField='text' /></div>
       <div className='flex flex-col mb-2.5'><Input type='password' label='رمز عبور فعلی' autoCompleteField='password' /></div>

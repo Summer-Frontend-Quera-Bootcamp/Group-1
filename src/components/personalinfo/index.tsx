@@ -1,5 +1,5 @@
 import React from 'react'
-import Input from '../FormContainer/Input'
+import Input from "../FormContainer/components/Input.tsx";
 import { Formik, Form, ErrorMessage, Field, useFormik } from "formik";
 import Profile from '../Setting';
 
