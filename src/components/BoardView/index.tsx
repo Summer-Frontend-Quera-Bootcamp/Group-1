@@ -1,9 +1,11 @@
 import Icons from "../../icons/Icons";
 import { BoardHeader } from "../BoardHeader";
+import {JSX} from "react";
 
 interface MyComponentProps {
   message: string;
   style: string;
+  count: number;
 }
 interface Card {
   image: string;
@@ -25,7 +27,7 @@ function Column() {
       <BoardHeader />
       <div className="flex gap-4">
         <div className="column">
-          <CardLittle style="2px solid #FD7E14" message="Open" />
+          <CardLittle count={2} style="2px solid #FD7E14" message="Open" />
           <Card image="" />
           <Card image="https://www.figma.com/file/wmiqD5uj1ECZwjDA6W4ls9/Front-End-Bootcamp-UI-Design-v2?type=design&node-id=2-1093&mode=dev" />
           <button className="flex p-[8px] px-3 py-2  flex-col justify-center items-center gap-10 self-stretch rounded-[8px] border-2 border-brand-primary my-6 mx-auto w-full">
@@ -38,10 +40,10 @@ function Column() {
           </button>
         </div>
         <div>
-          <CardLittle style="2px solid #4C6EF5" message="In Progress" />
+          <CardLittle count={0} style="2px solid #4C6EF5" message="In Progress" />
         </div>
         <div>
-          <CardLittle style="2px solid #FAB005" message="Pending" />
+          <CardLittle count={4} style="2px solid #FAB005" message="Pending" />
           <div className="flex flex-col gap-3">
             <Card image="" />
             <Card image="https://www.figma.com/file/wmiqD5uj1ECZwjDA6W4ls9/Front-End-Bootcamp-UI-Design-v2?type=design&node-id=2-1093&mode=dev" />
@@ -50,7 +52,7 @@ function Column() {
           </div>
         </div>
         <div>
-          <CardLittle style="2px solid #FD7E14" message="To Do" />
+          <CardLittle count={1} style="2px solid #FD7E14" message="To Do" />
           <Card image="" />
         </div>
       </div>
@@ -66,15 +68,17 @@ function CardLittle(props: MyComponentProps) {
     >
       {props.message}
       <span className="flex flex-col justify-center py-0.5 px-1 rounded-[100px]">
-        0
+        {
+          props.count
+        }
       </span>
     </div>
   );
 }
 
-function Card(props: Card) {
+function Card(props: Card): JSX.Element {
   return (
-    <div className="flex p-4 flex-col items-start gap-4 rounded-3xl board-box-shadow shadow-[0px_2px_4px_0px_rgba(0,0,0,0.40)_0px_7px_6px_-3px_rgba(0,0,0,0.30)_0px_-3px_0px_0px_rgba(0,0,0,0.20)_inset]">
+    <div className="flex p-4 flex-col items-start gap-4 rounded-3xl shadow-[0px_7px_6px_-3px_rgba(0,0,0,0.30)]">
       <img className="rounded" src={props.image} alt="" />
       <div className="flex text-right gap-3 flex-col items-start">
         <h6 className="text-xs">پروژه اول</h6>
