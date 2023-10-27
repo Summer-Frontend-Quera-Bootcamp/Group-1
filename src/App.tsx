@@ -42,7 +42,10 @@ function App() {
 						path='/test'
 						element={<Test />}
 					/>
-					<Route path='/showlist' /*element={<Test />}*/ />
+					<Route
+						path='/showlist'
+						element={<BoardListViewPage />}
+					/>
 					<Route
 						path='/showcol'
 						element={<BoardViewPage />}
@@ -62,10 +65,6 @@ function App() {
 					<Route
 						path='/personalinfo'
 						element={<PersonalInfoPage />}
-					/>
-					<Route
-						path='/board-list-view'
-						element={<BoardListViewPage />}
 					/>
 				</Routes>
 			</BrowserRouter>
