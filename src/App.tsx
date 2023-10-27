@@ -8,6 +8,7 @@ import ResetLinkSentPage from "./pages/ResetLinkSentPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import CalendarViewPage from "./pages/CalendarViewPage";
 import BoardListViewPage from "./pages/BoardListViewPage";
+import BoardViewPage from "./pages/BoardViewPage";
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
           <Route path="reset-password" element={<ResetPasswordPage />} />
           <Route path="/test" element={<Test />} />
           <Route path="/showlist" /*element={<Test />}*/ />
-          <Route path="/showcol" /*element={<Test />}*/ />
+          <Route path="/showcol" element={<BoardViewPage />} />
           <Route path="/calendar" element={<CalendarViewPage />} />
           <Route path="/accountinfo" /*element={<Test />}*/ />
           <Route path="/setting" /*element={<Test />}*/ />
