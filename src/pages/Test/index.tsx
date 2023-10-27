@@ -1,9 +1,5 @@
-
-import { MainLayout } from "../../Layout/MainLayout";
-
-
 const Test = () => {
-  return <div>Test</div>;
+    return <div></div>;
 };
 
 export default Test;
