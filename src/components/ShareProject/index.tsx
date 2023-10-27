@@ -18,7 +18,7 @@ const ShareProject: React.FC<IShareProject> = ({setShareProject, showShareProjec
 	return showShareProject ? (
 		<div
 			dir='ltr'
-			className={`${animation} w-[470px] h-[300px] p-5 bg-white rounded-xl flex-col justify-start items-center gap-10 inline-flex`}
+			className={`${animation} w-[470px] p-5 bg-white rounded-xl flex-col justify-start items-center gap-10 inline-flex`}
 		>
 			<div className='w-[430px] justify-between items-center inline-flex'>
 				<div className='w-6 h-6 opacity-0 justify-center items-center flex'>

@@ -18,7 +18,7 @@ const NewTask: React.FC<INewTask> = ({setNewTask}): JSX.Element => {
     return (
         <div
             dir='ltr'
-            className={`${animation} w-[1153px] h-[637px] p-8 bg-white rounded-[20px] shadow flex-col justify-start items-end gap-10 inline-flex`}
+            className={`${animation} w-[1153px] p-8 bg-white rounded-[20px] shadow flex-col justify-start items-end gap-10 inline-flex`}
         >
             <div className='self-stretch justify-between items-center inline-flex'>
                 <div onClick={() => handleClick()} className='w-8 h-8 justify-center items-center flex'>
