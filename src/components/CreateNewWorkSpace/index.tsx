@@ -2,6 +2,9 @@ import { useState } from "react";
 import SelectWorkspaceColor from "./SelectWorkspaceColor";
 import Icons from "../../icons/Icons";
 import pic2 from "../../assets/img/Frame 78.svg";
+import axios from "axios";
+import { baseUrl } from "../../constants/api";
+import Message from "../Message";
 interface ICreateNewWorkSpace {
   onColorReceived: (data: string) => void;
 }
@@ -15,6 +18,8 @@ const CreateNewWorkSpace: React.FC<ICreateNewWorkSpace> = (
   const [placeHolder, setPlaceHolder] = useState("");
   const [counter, setCounter] = useState(1);
   const [close, setClose] = useState(false);
+  const [apiError,setApiError] = useState("");
+  const [apiSuccess,setApiSuccess] = useState("");
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -34,7 +39,39 @@ const CreateNewWorkSpace: React.FC<ICreateNewWorkSpace> = (
     } else {
       setResult(tmp[0][0]);
     }
-    console.log(result);
+  };
+
+  const handleButtonCreate = () => {
+    inputValue !== ""
+      ? setCounter(counter + 1)
+      : setPlaceHolder("This Field Is Required!!!");
+    const tmp = inputValue.split(" ");
+    if (tmp[1]) {
+      setResult(tmp[0][0] + " " + tmp[1][0]);
+    } else {
+      setResult(tmp[0][0]);
+    }
+      const accessToken =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk4MzYwMDIwLCJpYXQiOjE2OTgzMzg0MjAsImp0aSI6ImJlYjM3YTU1NzIzYzQ1ZGE5YTc2YzBlMWU2MDU3NDA4IiwidXNlcl9pZCI6MjA2fQ.nuWjEnaTQ00XQ8OaX9_tqZmxUamMevCO8ugEME22xTM";
+    axios({
+      method: "post",
+      url: `${baseUrl}workspaces/`,
+      headers: { 'Authorization': `Bearer ${accessToken}` },
+      data : {
+        name: inputValue,
+        color : color
+      }
+    }).then((res) => {
+      setApiSuccess("ورک اسپیس با موفقیت ایجاد شد")
+      console.log(res)
+      setTimeout(() => {
+        setClose(true)
+      }, 2000);
+    }).catch((err)=> {
+      setApiError("مشکلی به وجود آمده است")
+      console.log(err);
+      
+    });
   };
 
   const handleArrowClick = () => {
@@ -54,11 +91,12 @@ const CreateNewWorkSpace: React.FC<ICreateNewWorkSpace> = (
           {Icons.close()}
         </div>
 
-        {counter === 1 ? (
+        {counter === 1 ? 
           <h1 className="text-2xl text-center font-bold mx-auto">
             ساختن ورک‌ اسپیس جدید‌
           </h1>
-        ) : counter === 2 ? (
+          
+         : counter === 2 ? (
           <h1 className="text-2xl text-center font-bold mx-auto">
             انتخاب رنگ ورک‌اسپیس
           </h1>
@@ -73,6 +111,16 @@ const CreateNewWorkSpace: React.FC<ICreateNewWorkSpace> = (
           </div>
         )}
       </div>
+      {
+            apiSuccess ? 
+            <Message type="success" message={apiSuccess}/> :
+            <></>
+          }
+          {
+            apiError ? 
+            <Message type="error" message={apiError}/> :
+            <></>
+          }
       <div className="mb-4">
         {counter === 1 ? (
           <>
@@ -120,11 +168,11 @@ const CreateNewWorkSpace: React.FC<ICreateNewWorkSpace> = (
               <div className="flex justify-between py-[16px]">
                 <p>اعضا</p>
                 <div className="w-9 h-9">
-                        <img
-                          src={pic2}
-                          className="w-full h-full rounded-full flex items-center justify-center object-contain"
-                        ></img>
-                      </div>
+                  <img
+                    src={pic2}
+                    className="w-full h-full rounded-full flex items-center justify-center object-contain"
+                  ></img>
+                </div>
               </div>
             </div>
           </>
@@ -142,7 +190,7 @@ const CreateNewWorkSpace: React.FC<ICreateNewWorkSpace> = (
         <button
           className="w-full h-[40px] bg-brand-primary hover:bg-cyan-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           type="submit"
-          onClick={handleButtonClick}
+          onClick={handleButtonCreate}
         >
           ساختن ورک‌ اسپیس
         </button>

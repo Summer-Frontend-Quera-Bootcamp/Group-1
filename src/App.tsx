@@ -7,7 +7,8 @@ import ForgotPage from "./pages/ForgotPage";
 import ResetLinkSentPage from "./pages/ResetLinkSentPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import CalendarViewPage from "./pages/CalendarViewPage";
-import Board from "./pages/BoardListView";
+import BoardListViewPage from "./pages/BoardListViewPage";
+
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
           <Route path="/accountinfo" /*element={<Test />}*/ />
           <Route path="/setting" /*element={<Test />}*/ />
           <Route path="/personalinfo" /*element={<Test />}*/ />
-          <Route path="/board-list-view" /*element={<Test />}*/ />
+          <Route path="/board-list-view" element={<BoardListViewPage/>} />
         </Routes>
       </BrowserRouter>
     </>

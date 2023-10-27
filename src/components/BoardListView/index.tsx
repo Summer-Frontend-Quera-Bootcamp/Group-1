@@ -4,7 +4,6 @@ import pic2 from "../../assets/img/Frame 78.svg";
 import { BoardHeader } from "../../components/BoardHeader";
 import Icons from "../../icons/Icons";
 const BoardListView = () => {
-
   const [lists, setListsOpen] = useState({
     parent: false,
     pending: false,
@@ -66,9 +65,14 @@ const BoardListView = () => {
                 <tr className="text-base font-medium">
                   <th className="flex items-center">
                     <div className="flex items-center gap-[5px] w-2/3 mr-10 pt-6">
-                      <div className={`cursor-pointer transform ${
-              lists.pending ? "rotate-90" : "rotate-0"
-            } transition-transform duration-300`} onClick={handlePendingOpen}>{Icons.expand()}</div>
+                      <div
+                        className={`cursor-pointer transform ${
+                          lists.pending ? "rotate-90" : "rotate-0"
+                        } transition-transform duration-300`}
+                        onClick={handlePendingOpen}
+                      >
+                        {Icons.expand()}
+                      </div>
                       <p className="bg-pink-300 px-[6px] py-[4px] rounded-[4px] text-white text-base">
                         Pending
                       </p>
@@ -81,7 +85,7 @@ const BoardListView = () => {
                   <th>توضیحات</th>
                 </tr>
               </thead>
-              
+
               <tbody
                 className={`${
                   lists.pending ? "opacity-0" : "opacity-100 mb-[40px]"
@@ -143,13 +147,9 @@ const BoardListView = () => {
             <div className="flex flex-col">
               <table className="w-full text-right ">
                 <thead>
-                  <tr
-                    className={`text-base font-medium ${
-                      lists.progress ? "opacity-0 h-0" : "opacity-100 h-auto"
-                    } transition-all duration-600 ease-in`}
-                  >
-                    <th className="flex items-center">
-                      <div className="flex items-center gap-[5px] w-2/3 mr-10 py-6">
+                  <tr className="text-base font-medium">
+                    <th className={`flex items-center`}>
+                      <div className="flex items-center gap-[5px] w-2/3 mr-10 pt-6">
                         <div
                           onClick={handleProgressOpen}
                           className={`cursor-pointer transform ${
@@ -170,70 +170,15 @@ const BoardListView = () => {
                     <th>توضیحات</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr className="text-xs">
-                    <th className="flex items-center mr-16 py-6 w-72 text-ellipsis"></th>
-                    <th>
-                      <div
-                        dir="ltr"
-                        className="flex justify-end -space-x-3 w-20"
-                      >
-                        <div className="w-9 h-9"></div>
-                        <div className="w-9 h-9"></div>
-                      </div>
-                    </th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr className="text-xs">
-                    <th className="flex items-center mr-16 py-6 w-72 text-ellipsis overflow-hidden"></th>
-                    <th>
-                      <div className="w-9 h-9"></div>
-                    </th>
-                    <td></td>
-                    <td></td>
-                    <td>
-                      <div className="cursor-pointer"></div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className="flex flex-col ">
-              <table
-                className={`w-full text-right ${
-                  lists.done ? "opacity-0 h-0" : "opacity-100 h-auto"
-                } transition-all duration-600 ease-in`}
-              >
-                <thead>
-                  <tr className="text-base font-medium ">
-                    <th className="flex items-center">
-                      <div className="flex items-center gap-[5px] w-2/3 mr-10 py-6">
-                        <div
-                          onClick={handleDoneOpen}
-                          className={`cursor-pointer transform ${
-                            lists.done ? "rotate-90" : "rotate-0"
-                          } transition-transform duration-300`}
-                        >
-                          {Icons.expand()}
-                        </div>
-                        <p className="bg-green-300 px-[6px] py-[4px] rounded-[4px] text-white text-base">
-                          Done
-                        </p>
-                        <p className="text-black-secondary text-xs">۲ تسک</p>
-                      </div>
-                    </th>
-                    <th>اعضا</th>
-                    <th>ددلاین</th>
-                    <th>اولویت</th>
-                    <th>توضیحات</th>
-                  </tr>
-                </thead>
-                <tbody>
+
+                <tbody
+                  className={`${
+                    lists.progress ? "opacity-0" : "opacity-100 mb-[40px]"
+                  } transition-all duration-600 ease-in`}
+                >
                   <tr className="text-xs">
                     <th className="flex items-center mr-16 py-6 w-72 text-ellipsis">
-                      <span className="w-4 h-4 bg-green-300 rounded-sm ml-2 "></span>
+                      <span className="w-4 h-4 bg-orange-600 rounded-sm ml-2 "></span>
                       این یک تیتر برای این تسک است.
                     </th>
                     <th>
@@ -267,7 +212,7 @@ const BoardListView = () => {
                   </tr>
                   <tr className="text-xs">
                     <th className="flex items-center mr-16 py-6 w-72 text-ellipsis overflow-hidden">
-                      <span className="w-4 h-4 bg-green-300 rounded-sm ml-2"></span>
+                      <span className="w-4 h-4 bg-orange-600 rounded-sm ml-2"></span>
                       این یک تیتر برای یک تسک است
                     </th>
                     <th>
@@ -291,9 +236,107 @@ const BoardListView = () => {
                 </tbody>
               </table>
             </div>
+            <div className="flex flex-col ">
+              <table className="w-full text-right">
+                <thead>
+                  <tr className="text-base font-medium ">
+                    <th className="flex items-center">
+                      <div className="flex items-center gap-[5px] w-2/3 mr-10 py-6">
+                        <div
+                          onClick={handleDoneOpen}
+                          className={`cursor-pointer transform ${
+                            lists.done ? "rotate-90" : "rotate-0"
+                          } transition-transform duration-300`}
+                        >
+                          {Icons.expand()}
+                        </div>
+                        <p className="bg-green-300 px-[6px] py-[4px] rounded-[4px] text-white text-base">
+                          Done
+                        </p>
+                        <p className="text-black-secondary text-xs">۲ تسک</p>
+                      </div>
+                    </th>
+                    <th>اعضا</th>
+                    <th>ددلاین</th>
+                    <th>اولویت</th>
+                    <th>توضیحات</th>
+                  </tr>
+                </thead>
+                <tbody
+                  className={`${
+                    lists.done ? "opacity-0" : "opacity-100 mb-[40px]"
+                  } transition-all duration-600 ease-in`}
+                >
+                  <tr className="text-xs">
+                    <th className="flex items-center mr-16 py-6 w-72 text-ellipsis">
+                      <span className="w-4 h-4 bg-green-300 rounded-sm ml-2 "></span>
+                      این یک تیتر برای این تسک است.
+                    </th>
+                    <th>
+                      <div
+                        dir="ltr"
+                        className="flex justify-end -space-x-3 w-20"
+                      >
+                        <div className="w-9 h-9">
+                          <img
+                            src={pic2}
+                            className="w-full h-full rounded-full flex items-center justify-center object-contain"
+                          ></img>
+                        </div>
+                        <div className="w-9 h-9">
+                          <img
+                            src={pic1}
+                            className="w-full h-full rounded-full flex items-center justify-center object-contain"
+                          ></img>
+                        </div>
+                      </div>
+                    </th>
+                    <td>۶ آبان</td>
+                    <td>
+                      <span className="text-FB0606">{Icons.flag("#FAB005")}</span>
+                    </td>
+                    <td>
+                      <div className="cursor-pointer">
+                        {Icons.description()}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr className="text-xs">
+                    <th className="flex items-center mr-16 py-6 w-72 text-ellipsis overflow-hidden">
+                      <span className="w-4 h-4 bg-green-300 rounded-sm ml-2"></span>
+                      این یک تیتر برای یک تسک است
+                    </th>
+                    <th>
+                      <div className="w-9 h-9">
+                        <img
+                          src={pic2}
+                          className="w-full h-full rounded-full flex items-center justify-center object-contain"
+                        ></img>
+                      </div>
+                    </th>
+                    <td>۶ آبان</td>
+                    <td>
+                      <span className="text-FB0606">{Icons.flag("#FC0733")}</span>
+                    </td>
+                    <td>
+                      <div className="cursor-pointer">
+                        {Icons.description()}
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
+      <button
+        // onClick={openHandler}
+        className="z-10 mr-auto ml-4 mt-24 -translate-y-4 flex items-center gap-1 text-white bg-brand-primary px-3 py-2 rounded-md"
+      >
+        {Icons.addBox("#fff")}
+        تسک جدید
+      </button>
     </div>
   );
 };
