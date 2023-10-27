@@ -30,7 +30,7 @@ function Column() {
 	};
 
 	return (
-		<div className='flex flex-col'>
+		<div className='flex flex-col max-h-[86vh] overflow-y-scroll'>
 			<BoardHeader />
 			<div className='flex gap-4'>
 				<div className='column'>

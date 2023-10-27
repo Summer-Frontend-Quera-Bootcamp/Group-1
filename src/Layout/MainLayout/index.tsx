@@ -37,7 +37,7 @@ export const MainLayout: React.FC<IMainLayout> = ({
   };
   return (
     <>
-      <div className="flex">
+      <div className="flex overflow-hidden">
         <div
           id="sidebar"
           className="w-[25%] h-screen border-l-[1px] border-solid flex flex-col justify-between pb-7"

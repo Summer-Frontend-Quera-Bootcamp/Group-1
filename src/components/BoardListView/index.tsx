@@ -42,8 +42,8 @@ const BoardListView = () => {
   return (
     <div>
       <BoardHeader />
-      <div className=" bg-backGround-primary my-[20px] mx-[20px]">
-        <div className="flex items-center gap-[8px] text-black-secondary mb-[30px]">
+      <div className="my-[20px] mx-[20px] h-[86vh] overflow-y-scroll">
+        <div className="flex items-center gap-2 text-black-secondary mb-[30px]">
           <div
             onClick={handleParentOpen}
             className={`cursor-pointer transform ${
@@ -293,7 +293,9 @@ const BoardListView = () => {
                     </th>
                     <td>۶ آبان</td>
                     <td>
-                      <span className="text-FB0606">{Icons.flag("#FAB005")}</span>
+                      <span className="text-FB0606">
+                        {Icons.flag("#FAB005")}
+                      </span>
                     </td>
                     <td>
                       <div className="cursor-pointer">
@@ -316,7 +318,9 @@ const BoardListView = () => {
                     </th>
                     <td>۶ آبان</td>
                     <td>
-                      <span className="text-FB0606">{Icons.flag("#FC0733")}</span>
+                      <span className="text-FB0606">
+                        {Icons.flag("#FC0733")}
+                      </span>
                     </td>
                     <td>
                       <div className="cursor-pointer">
@@ -329,14 +333,11 @@ const BoardListView = () => {
             </div>
           </div>
         </div>
+        <button className="z-10 mr-auto ml-4 mt-24  flex items-center gap-1 text-white bg-brand-primary px-3 py-2 rounded-md">
+          {Icons.addBox("#fff")}
+          تسک جدید
+        </button>
       </div>
-      <button
-        // onClick={openHandler}
-        className="z-10 mr-auto ml-4 mt-24 -translate-y-4 flex items-center gap-1 text-white bg-brand-primary px-3 py-2 rounded-md"
-      >
-        {Icons.addBox("#fff")}
-        تسک جدید
-      </button>
     </div>
   );
 };
