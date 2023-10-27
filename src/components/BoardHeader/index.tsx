@@ -14,9 +14,11 @@ export const BoardHeader = () => {
           />
         </div>
       </span>
-      <div className="flex gap-4 text-xs p-2">
-        <button className="flex gap-2">
-          {Icons.filters()}
+      <div className="flex items-center gap-4 text-xs p-2">
+        <button className="flex flex-row items-center gap-2">
+          {
+            Icons.filters()
+          }
           <span>فیلترها</span>
         </button>
         <span>دسته بندی شده با: وضعیت</span>
