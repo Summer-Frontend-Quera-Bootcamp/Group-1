@@ -23,58 +23,6 @@ const Board = () => {
 };
 
 function Column() {
-	return (
-		<div className='flex flex-col'>
-			<BoardHeader />
-			<div className='flex gap-4'>
-				<div className='column'>
-					<CardLittle
-						count={2}
-						style='2px solid #FD7E14'
-						message='Open'
-					/>
-					<Card image='' />
-					<Card image='https://www.figma.com/file/wmiqD5uj1ECZwjDA6W4ls9/Front-End-Bootcamp-UI-Design-v2?type=design&node-id=2-1093&mode=dev' />
-					<button className='flex p-[8px] px-3 py-2  flex-col justify-center items-center gap-10 self-stretch rounded-[8px] border-2 border-brand-primary my-6 mx-auto w-full'>
-						<div className='flex text-xs text-brand-primary font-extrabold capitalize justify-center items-center'>
-							<span className='flex justify-center items-center h-4 w-4'>
-								{Icons.addBox('#208D8E')}
-							</span>{' '}
-							ساختن تسک جدید
-						</div>
-					</button>
-				</div>
-				<div>
-					<CardLittle
-						count={0}
-						style='2px solid #4C6EF5'
-						message='In Progress'
-					/>
-				</div>
-				<div>
-					<CardLittle
-						count={4}
-						style='2px solid #FAB005'
-						message='Pending'
-					/>
-					<div className='flex flex-col gap-3'>
-						<Card image='' />
-						<Card image='https://www.figma.com/file/wmiqD5uj1ECZwjDA6W4ls9/Front-End-Bootcamp-UI-Design-v2?type=design&node-id=2-1093&mode=dev' />
-						<Card image='' />
-						<Card image='' />
-					</div>
-				</div>
-				<div>
-					<CardLittle
-						count={1}
-						style='2px solid #FD7E14'
-						message='To Do'
-					/>
-					<Card image='' />
-				</div>
-			</div>
-		</div>
-	);
 	const [openNewTask, setOpenNewTask] = useState<boolean>(false);
 
 	const handleClick = () => {
@@ -97,7 +45,7 @@ function Column() {
 						onClick={handleClick}
 						className='flex p-[8px] px-3 py-2  flex-col justify-center items-center gap-10 self-stretch rounded-[8px] border-2 border-brand-primary my-6 mx-auto w-full'
 					>
-						<div className='cursor-pointer flex text-xs text-teal-500 font-extrabold capitalize justify-center items-center'>
+						<div className='cursor-pointer flex text-xs text-brand-primary font-extrabold capitalize justify-center items-center'>
 							<span className='flex justify-center items-center h-4 w-4'>
 								{Icons.addBox('#208D8E')}
 							</span>{' '}
