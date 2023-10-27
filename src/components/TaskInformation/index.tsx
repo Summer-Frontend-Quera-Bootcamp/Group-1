@@ -10,12 +10,11 @@ export const TaskInformation = () => {
             <button className="bg-[#F84747] text-white w-[111px] pr-[8px] pl-[4px]">
               Open
             </button>
-
             <button className="bg-[#F84747] w-[24px]  mr-[2px]">
               {Icons.chevronLeft("#fff")}
             </button>
           </div>
-
+          //*
           <div className="">{Icons.checkRectangle()}</div>
           <div dir="ltr" className="flex justify-end -space-x-3">
             <div className="w-9 h-9">
