@@ -74,7 +74,7 @@ function CardLittle(props: MyComponentProps) {
 
 function Card(props: Card) {
   return (
-    <div className="flex p-4 flex-col items-start gap-4 rounded-3xl board-box-shadow">
+    <div className="flex p-4 flex-col items-start gap-4 rounded-3xl board-box-shadow shadow-[0px_2px_4px_0px_rgba(0,0,0,0.40)_0px_7px_6px_-3px_rgba(0,0,0,0.30)_0px_-3px_0px_0px_rgba(0,0,0,0.20)_inset]">
       <img className="rounded" src={props.image} alt="" />
       <div className="flex text-right gap-3 flex-col items-start">
         <h6 className="text-xs">پروژه اول</h6>
